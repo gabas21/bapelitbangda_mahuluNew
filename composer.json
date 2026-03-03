@@ -1,11 +1,13 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/blank-livewire-starter-kit",
+    "name": "bapelitbangda/mahakam-ulu-portal",
     "type": "project",
-    "description": "The official Laravel starter kit for Livewire.",
+    "description": "Portal resmi Bapelitbangda Kabupaten Mahakam Ulu — Perencanaan Inovatif & Berkelanjutan.",
     "keywords": [
+        "bapelitbangda",
+        "mahakam-ulu",
         "laravel",
-        "framework"
+        "livewire"
     ],
     "license": "MIT",
     "require": {
@@ -97,6 +99,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }

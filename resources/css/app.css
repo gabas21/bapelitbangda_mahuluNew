@@ -5,4 +5,859 @@
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-slate-750: #2d3748;
+
+    /* ═══════════════════════════════════════ */
+    /* Sky Blue Cerah — Biru Murni Tanpa Ungu */
+    /* ═══════════════════════════════════════ */
+
+    /* Primary Sky Blue (cerah, lembut, jelas biru) */
+    --color-primary: #0EA5E9;
+    /* Sky 500 */
+    --color-primary-dark: #0284C7;
+    /* Sky 600 */
+    --color-primary-light: #38BDF8;
+    /* Sky 400 */
+    --color-primary-lighter: #7DD3FC;
+    /* Sky 300 */
+    --color-primary-50: #F0F9FF;
+    /* Sky 50 */
+
+    /* Surface & Background */
+    --color-surface: #F8FAFC;
+    --color-surface-alt: #F0F9FF;
+    --color-surface-white: #FFFFFF;
+
+    /* Text */
+    --color-text-dark: #0C4A6E;
+    /* Sky 900 — biru tua untuk heading */
+    --color-text-body: #334155;
+    --color-text-muted: #64748B;
+    --color-text-light: #94A3B8;
+
+    /* Accent (Sunflower Yellow) */
+    --color-accent: #FBBF24;
+    /* Yellow 400 */
+    --color-accent-light: #FCD34D;
+    /* Yellow 300 */
+    --color-accent-dark: #EAB308;
+    /* Yellow 500 */
+
+    /* Legacy Mappings */
+    --color-navy: #0EA5E9;
+    --color-navy-dark: #0284C7;
+    --color-navy-light: #38BDF8;
+    --color-navy-lighter: #7DD3FC;
+    --color-cream: #FFFFFF;
+    --color-lavender: #CBD5E1;
+    --color-lavender-light: #E2E8F0;
+    --color-lavender-dark: #94A3B8;
+    --color-rose: #FBBF24;
+    --color-rose-light: #FCD34D;
+    --color-rose-dark: #EAB308;
+
+    /* Instansi tokens */
+    --color-instansi-primary: #0369A1;
+    /* Sky 700 — biru tua cerah */
+    --color-instansi-action: #0EA5E9;
+    /* Sky 500 */
+    --color-instansi-hover: #0284C7;
+    /* Sky 600 */
+    --color-instansi-surface: #F8FAFC;
+    --color-instansi-text-main: #0C4A6E;
+    /* Sky 900 */
+    --color-instansi-text-muted: #334155;
+    --color-instansi-highlight: #FBBF24;
+
+    --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+    --animate-fade-in-down: fade-in-down 0.6s ease-out forwards;
+    --animate-bounce-slow: bounce 3s infinite;
+    --animate-shimmer: shimmer 2s infinite linear;
+    --animate-marquee: marquee 30s linear infinite;
+    --animate-counter: counter 2s ease-out forwards;
+    --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
+
+    @keyframes fade-in-up {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fade-in-down {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes shimmer {
+        0% {
+            background-position: -400px 0;
+        }
+
+        100% {
+            background-position: 400px 0;
+        }
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(0%);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    @keyframes counter {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes glow-pulse {
+
+        0%,
+        100% {
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.1);
+        }
+
+        50% {
+            box-shadow: 0 0 40px rgba(251, 191, 36, 0.25);
+        }
+    }
+}
+
+/* River flow animation for hero SVG lines */
+.river-line {
+    stroke-dasharray: 12, 8;
+    animation: river-flow 4s linear infinite;
+}
+
+@keyframes river-flow {
+    to {
+        stroke-dashoffset: -40;
+    }
+}
+
+/* ============================================ */
+/* MOBILE MICRO-INTERACTIONS                    */
+/* ============================================ */
+
+/* Hapus tap highlight bawaan browser — diganti sistem sendiri */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Ripple animation utama */
+@keyframes touch-ripple-anim {
+    0% {
+        transform: scale(0);
+        opacity: 0.28;
+    }
+    60% {
+        opacity: 0.15;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* Press scale — dipakai secara global di mobile */
+@media (max-width: 768px) {
+
+    /* Semua tombol dan link interaktif */
+    button:not([data-no-press]),
+    a[href]:not([data-no-press]),
+    [role="button"]:not([data-no-press]),
+    .btn-primary,
+    .btn-secondary {
+        transition-property: transform, opacity, box-shadow, background-color, border-color;
+        transition-duration: 150ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    /* State tertekan */
+    button:active:not([disabled]):not([data-no-press]),
+    a[href]:active:not([data-no-press]),
+    [role="button"]:active:not([data-no-press]) {
+        transform: scale(0.94);
+        opacity: 0.85;
+    }
+
+    /* Tombol primer khusus — lebih terasa */
+    .btn-primary:active {
+        transform: scale(0.93);
+        box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.25);
+    }
+
+    /* Bottom nav items — lebih ekspresif */
+    nav a:active,
+    nav button:active {
+        transform: scale(0.85) translateY(2px) !important;
+    }
+
+    /* Sheet menu items */
+    .sheet-item:active {
+        transform: scale(0.96);
+        opacity: 0.8;
+    }
+
+    /* Card interaktif */
+    .card-base:active,
+    .card-tap:active {
+        transform: scale(0.98);
+    }
+
+    /* Input focus — beri visual jelas */
+    input:focus,
+    select:focus,
+    textarea:focus {
+        transform: scale(1.005);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* Table row tap */
+    tr:active td {
+        background-color: rgba(14, 165, 233, 0.06) !important;
+    }
+}
+
+/* Scrollable container — momentum scroll di iOS */
+.overflow-y-auto,
+.overflow-x-auto,
+[style*="overflow: auto"],
+[style*="overflow-y: scroll"] {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+/* Bottom sheet smooth drag feel */
+.bottom-sheet-handle {
+    width: 40px;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+    margin: 0 auto 12px;
+}
+
+/* Toast feedback (untuk notifikasi setelah aksi) */
+.toast-mobile {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(15, 23, 42, 0.92);
+    color: white;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 100px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+
+.toast-mobile.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Talawang Shield Mask */
+.mask-talawang {
+    clip-path: polygon(50% 0%, 100% 10%, 90% 85%, 50% 100%, 10% 85%, 0% 10%);
+    transition: clip-path 0.5s ease-in-out;
+}
+
+.group:hover .mask-talawang-hover {
+    clip-path: polygon(50% 0%, 100% 5%, 95% 90%, 50% 100%, 5% 90%, 0% 5%);
+}
+
+/* Authentic Dayak Pattern Strip */
+.bg-dayak-pattern {
+    background-color: #7f1d1d;
+    /* Maroon base */
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FBBF24' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Modern Scrollbar - Blue-Gold Soul */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #fbbf24;
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(to right, #f59e0b, #fbbf24);
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
+    z-index: 1000;
+    transition: width 0.1s ease-out;
+}
+
+/* Shimmer skeleton */
+.shimmer-bg {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0) 100%);
+    background-size: 800px 100%;
+    animation: shimmer 2s infinite linear;
+}
+
+/* Glassmorphism utility */
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(14, 165, 233, 0.12);
+}
+
+.glass-light {
+    background: rgba(14, 165, 233, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(14, 165, 233, 0.08);
+}
+
+/* Card glow on hover */
+.card-glow {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-glow:hover {
+    box-shadow: 0 0 30px rgba(14, 165, 233, 0.15), 0 20px 60px rgba(0, 0, 0, 0.08);
+    transform: translateY(-6px);
+}
+
+/* Marquee */
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+/* AOS-like scroll reveal using Alpine */
+[x-intersect] {
+    will-change: transform, opacity;
+}
+
+/* ============================================ */
+/* PillNav Styles                               */
+/* ============================================ */
+
+/* Pill bar styling */
+.pill-bar {
+    will-change: transform;
+}
+
+/* Individual pill: icon-only by default, expand on hover */
+.pill-item {
+    padding: 0 12px;
+    min-width: 38px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Circle fill from bottom on hover */
+.pill-circle {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pill-item:hover .pill-circle {
+    transform: translateX(-50%) scale(1.2) !important;
+}
+
+/* Text: hidden by default, expand on hover */
+.pill-text {
+    max-width: 0;
+    opacity: 0;
+    margin-left: 0;
+    transition: max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.15s,
+        margin-left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pill-item:hover .pill-text {
+    max-width: 120px;
+    opacity: 1;
+    margin-left: 6px;
+}
+
+/* Icon: subtle scale on hover */
+.pill-icon {
+    transition: transform 0.3s ease;
+}
+
+.pill-item:hover .pill-icon {
+    transform: scale(1.15);
+}
+
+/* ============================================ */
+/* BENTO GRID — Magic Glow Effects              */
+/* ============================================ */
+
+.bento-grid {
+    --glow-color-r: 14;
+    --glow-color-g: 165;
+    --glow-color-b: 233;
+    --glow-x: 50%;
+    --glow-y: 50%;
+    --glow-intensity: 0;
+    --glow-radius: 300px;
+    --border-color: rgba(14, 165, 233, 0.1);
+}
+
+/* Spotlight that follows cursor */
+.bento-spotlight {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle,
+            rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), 0.12) 0%,
+            rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), 0.06) 20%,
+            rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), 0.02) 40%,
+            transparent 70%);
+    z-index: 200;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+    transition: opacity 0.4s ease;
+}
+
+/* Individual bento card */
+.bento-card {
+    --card-glow-x: 50%;
+    --card-glow-y: 50%;
+    --card-glow-opacity: 0;
+    position: relative;
+    background: var(--color-navy-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.35s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.bento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), 0.15);
+    border-color: rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), 0.2);
+}
+
+/* Border glow using mask */
+.bento-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1.5px;
+    background: radial-gradient(var(--glow-radius) circle at var(--card-glow-x) var(--card-glow-y),
+            rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), var(--card-glow-opacity)) 0%,
+            rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), calc(var(--card-glow-opacity) * 0.4)) 30%,
+            transparent 60%);
+    border-radius: inherit;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+/* Inner glow overlay on card face */
+.bento-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px circle at var(--card-glow-x) var(--card-glow-y),
+            rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), calc(var(--card-glow-opacity) * 0.06)) 0%,
+            transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Floating particles inside card */
+@keyframes bento-float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translate(var(--float-x, 30px), var(--float-y, -40px)) rotate(180deg);
+    }
+}
+
+.bento-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), 0.8);
+    box-shadow: 0 0 6px rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), 0.4);
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0;
+    animation: bento-float var(--duration, 3s) var(--delay, 0s) ease-in-out infinite;
+}
+
+/* Click ripple */
+@keyframes bento-ripple {
+    0% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.bento-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), 0.35) 0%,
+            rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), 0.1) 40%,
+            transparent 70%);
+    pointer-events: none;
+    z-index: 10;
+    animation: bento-ripple 0.7s ease-out forwards;
+}
+
+/* Card icon container */
+.bento-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), 0.08);
+    border: 1px solid rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), 0.12);
+    transition: all 0.3s ease;
+}
+
+.bento-card:hover .bento-icon {
+    background: rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), 0.15);
+    box-shadow: 0 0 20px rgba(var(--glow-color-r), var(--glow-color-g), var(--glow-color-b), 0.2);
+}
+
+/* Responsive bento grid layout */
+.bento-layout {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: minmax(160px, auto);
+    gap: 10px;
+}
+
+@media (max-width: 1023px) {
+    .bento-layout {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(140px, auto);
+    }
+}
+
+@media (max-width: 639px) {
+    .bento-layout {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(120px, auto);
+    }
+}
+
+/* ============================================ */
+/* DESIGN SYSTEM & FLUID TYPOGRAPHY             */
+/* ============================================ */
+
+@theme {
+    /* Fluid Typography via clamp() */
+    --text-fluid-h1: clamp(2rem, 5vw + 1rem, 4rem);
+    --text-fluid-h2: clamp(1.75rem, 4vw + 1rem, 3rem);
+    --text-fluid-h3: clamp(1.5rem, 3vw + 1rem, 2.25rem);
+    --text-fluid-p: clamp(1rem, 1vw + 0.875rem, 1.125rem);
+}
+
+@layer base {
+    h1 {
+        font-size: var(--text-fluid-h1);
+        line-height: 1.1;
+    }
+
+    h2 {
+        font-size: var(--text-fluid-h2);
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+    }
+
+    h3 {
+        font-size: var(--text-fluid-h3);
+        line-height: 1.3;
+    }
+
+    p {
+        font-size: var(--text-fluid-p);
+        line-height: 1.6;
+    }
+}
+
+@layer components {
+
+    /* Tombol Primer */
+    .btn-primary {
+        @apply inline-flex items-center justify-center px-6 py-3;
+        @apply bg-primary text-white font-bold tracking-wide rounded-xl shadow-md transition-all duration-300;
+        @apply hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-lg;
+        @apply focus:outline-none focus:ring-4 focus:ring-primary/40 focus:translate-y-0 focus:shadow-md;
+        @apply active:scale-95 active:translate-y-0;
+    }
+
+    /* Tombol Sekunder / Outline */
+    .btn-secondary {
+        @apply inline-flex items-center justify-center px-6 py-3;
+        @apply bg-transparent border-2 border-primary text-primary font-bold tracking-wide rounded-xl transition-all duration-300;
+        @apply hover:bg-primary hover:text-white hover:-translate-y-0.5 hover:shadow-md;
+        @apply focus:outline-none focus:ring-4 focus:ring-primary/30 focus:translate-y-0;
+        @apply active:scale-95 active:translate-y-0;
+    }
+
+    /* Kartu (Card) System Dasar */
+    .card-base {
+        @apply bg-surface-white rounded-2xl border border-slate-200/80 shadow-sm transition-all duration-300;
+        @apply hover:shadow-lg hover:border-primary/30 hover:-translate-y-1;
+    }
+}
+
+/* ============================================ */
+/* CUSTOM GPR KOMDIGI WIDGET STYLING            */
+/* ============================================ */
+
+/* Remove harsh borders from the widget iframe/container */
+/* Remove harsh borders from the widget iframe/container */
+#gpr-kominfo-widget-container {
+    width: 100% !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    /* Stretch to fill parent card height */
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Hide the widget's own header (replaced by our custom overlay) */
+#gpr-kominfo-widget-header {
+    display: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Stretch body to fill remaining space so scroll goes to card bottom */
+#gpr-kominfo-widget-body {
+    flex: 1 1 auto !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+/* Keep footer minimal */
+#gpr-kominfo-widget-footer {
+    flex-shrink: 0 !important;
+    background-color: #ffffff !important;
+}
+
+#gpr-kominfo-widget-container iframe {
+    width: 100% !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+
+/* Hide kominfo header in the widget if possible (usually class .gpr-widget-header) */
+.gpr-widget-header {
+    display: none !important;
+}
+
+.gpr-widget-list-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.3s ease !important;
+    padding: 1rem !important;
+    background: transparent !important;
+}
+
+.gpr-widget-list-item:hover {
+    background-color: var(--color-surface) !important;
+}
+
+.gpr-widget-list-item a {
+    color: var(--color-text-body) !important;
+    font-family: 'Instrument Sans', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    text-decoration: none !important;
+    transition: color 0.3s !important;
+    display: block !important;
+}
+
+.gpr-widget-list-item a:hover {
+    color: var(--color-primary) !important;
+}
+
+/* Ensure empty backgrounds for body if it uses iframe internally */
+.gpr-custom-wrapper iframe {
+    background: transparent !important;
+}
+
+/* Fix rounded radius inside widget container */
+.gpr-custom-wrapper {
+    padding-top: 72px;
+    /* Match exact height of custom header */
+    background-color: #ffffff !important;
+    overflow: hidden !important;
+}
+
+
+/* Force inner wrapper background and remove inner spacing causing the white gap */
+#gpr-kominfo-widget-container,
+#gpr-kominfo-widget-container>div,
+#gpr-kominfo-widget-container ul {
+    background-color: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+/* Specifically target the container that holds the list to remove the empty space gap */
+#gpr-kominfo-widget-container>div {
+    margin-top: -15px !important;
+    /* Pull the list up to hide the gap */
+}
+
+/* ============================================ */
+/* Force remove purple/navy color from GPR widget */
+/* ============================================ */
+
+/* Override ANY dark/purple backgrounds injected by the GPR widget script */
+#gpr-kominfo-widget-container *,
+#gpr-kominfo-widget-container *>* {
+    background-color: #ffffff !important;
+    color: #334155 !important;
+    border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Keep links styled properly */
+#gpr-kominfo-widget-container a,
+#gpr-kominfo-widget-container a * {
+    color: #0369a1 !important;
+    background-color: transparent !important;
+}
+
+#gpr-kominfo-widget-container a:hover,
+#gpr-kominfo-widget-container a:hover * {
+    color: #0ea5e9 !important;
+}
+
+/* Keep text muted elements */
+#gpr-kominfo-widget-container span,
+#gpr-kominfo-widget-container small,
+#gpr-kominfo-widget-container time {
+    color: #64748b !important;
+    background-color: transparent !important;
+}
+
+/* Force any injected header/footer bars to white */
+#gpr-kominfo-widget-container header,
+#gpr-kominfo-widget-container footer,
+#gpr-kominfo-widget-container nav,
+#gpr-kominfo-widget-container [class*="header"],
+#gpr-kominfo-widget-container [class*="footer"],
+#gpr-kominfo-widget-container [class*="nav"],
+#gpr-kominfo-widget-container [class*="top"],
+#gpr-kominfo-widget-container [class*="bottom"],
+#gpr-kominfo-widget-container [class*="bar"] {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #334155 !important;
+    border-color: rgba(0, 0, 0, 0.06) !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+/* Remove stray borders from the container itself */
+#gpr-kominfo-widget-container {
+    border-top: none !important;
+    box-shadow: none !important;
 }
