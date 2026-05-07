@@ -1,4 +1,4 @@
-﻿        <!-- ============================================ -->
+        <!-- ============================================ -->
         <!-- SECTION 2: SLIDE BERITA UTAMA & LAYANAN     -->
         <!-- ============================================ -->
         <section class="py-16 relative bg-instansi-surface" x-data="{ currentSlide: 0, totalSlides: {{ count($pengumumanItems ?? []) }}, isModalOpen: false, modalImageSrc: '' }" x-init="setInterval(() => { currentSlide = (currentSlide + 1) % totalSlides }, 5000)" @keydown.escape.window="isModalOpen = false">
@@ -25,18 +25,26 @@
                         </div>
                         @endforeach
 
-                        <!-- Slider Controls -->
-                        <div class="absolute bottom-6 right-6 z-20 flex items-center gap-3">
-                            <button @click="currentSlide = (currentSlide - 1 + totalSlides) % totalSlides" class="w-10 h-10 rounded-full glass flex items-center justify-center text-instansi-text-main hover:bg-white/20 active:scale-90 transition-all">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                        <!-- Minimalist Vertical Slider Controls -->
+                        <div class="absolute right-6 top-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-5">
+                            <button @click="currentSlide = (currentSlide - 1 + totalSlides) % totalSlides" 
+                                    class="text-slate-400 hover:text-instansi-action transition-all active:scale-90 p-1"
+                                    title="Sebelumnya">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M18 15l-6-6-6 6" /></svg>
                             </button>
-                            <div class="flex gap-2">
+                            
+                            <div class="flex flex-col gap-3">
                                 @foreach($pengumumanItems as $index => $pengumuman)
-                                <button @click="currentSlide = {{ $index }}" class="w-2.5 h-2.5 rounded-full transition-all duration-300 hover:scale-125" :class="currentSlide === {{ $index }} ? 'bg-instansi-action w-8' : 'bg-white/50 hover:bg-white/80'"></button>
+                                <button @click="currentSlide = {{ $index }}" 
+                                        class="w-1 rounded-full transition-all duration-500" 
+                                        :class="currentSlide === {{ $index }} ? 'bg-instansi-action h-8' : 'bg-slate-300/40 h-1.5 hover:bg-slate-400'"></button>
                                 @endforeach
                             </div>
-                            <button @click="currentSlide = (currentSlide + 1) % totalSlides" class="w-10 h-10 rounded-full glass flex items-center justify-center text-instansi-text-main hover:bg-white/20 active:scale-90 transition-all">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+
+                            <button @click="currentSlide = (currentSlide + 1) % totalSlides" 
+                                    class="text-slate-400 hover:text-instansi-action transition-all active:scale-90 p-1"
+                                    title="Selanjutnya">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 9l6 6 6-6" /></svg>
                             </button>
                         </div>
                     </div>
@@ -57,7 +65,7 @@
                                     <h3 class="font-montserrat font-bold text-[15px] text-slate-800 mb-1 group-hover:text-sky-600 transition-colors">Layanan Pengaduan</h3>
                                     <p class="text-slate-500 text-xs leading-relaxed font-medium">Sistem Informasi Pengaduan Kemasyarakatan</p>
                                 </div>
-                                <div class="w-8 h-8 shrink-0 flex items-center justify-center text-slate-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-sky-600 transition-all duration-300">
+                                <div class="w-8 h-8 shrink-0 flex items-center justify-center text-slate-300 group-hover:translate-x-1 group-hover:text-sky-600 transition-all duration-300">
                                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                                 </div>
                             </div>
@@ -76,7 +84,7 @@
                                     <h3 class="font-montserrat font-bold text-[15px] text-slate-800 mb-1 group-hover:text-sky-600 transition-colors">Cek Status Laporan</h3>
                                     <p class="text-slate-500 text-xs leading-relaxed font-medium">Lacak alur progres tindak lanjut layanan</p>
                                 </div>
-                                <div class="w-8 h-8 shrink-0 flex items-center justify-center text-slate-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-sky-600 transition-all duration-300">
+                                <div class="w-8 h-8 shrink-0 flex items-center justify-center text-slate-300 group-hover:translate-x-1 group-hover:text-sky-600 transition-all duration-300">
                                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                                 </div>
                             </div>
@@ -95,7 +103,7 @@
                                     <h3 class="font-montserrat font-bold text-[15px] text-slate-800 mb-1 group-hover:text-sky-600 transition-colors">Survey Kepuasan</h3>
                                     <p class="text-slate-500 text-xs leading-relaxed font-medium">Bantu isi Indeks Kepuasan Masyarakat (IKM)</p>
                                 </div>
-                                <div class="w-8 h-8 shrink-0 flex items-center justify-center text-slate-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-sky-600 transition-all duration-300">
+                                <div class="w-8 h-8 shrink-0 flex items-center justify-center text-slate-300 group-hover:translate-x-1 group-hover:text-sky-600 transition-all duration-300">
                                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                                 </div>
                             </div>

@@ -42,12 +42,14 @@
                         </div>
                     </div>
                 </div>
-                @php $documents = [
-                    ['no' => 'SOP-001', 'title' => 'SOP Penyusunan Rencana Kerja (RENJA)', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'SOP-002', 'title' => 'SOP Pelaksanaan Musrenbang', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'SOP-003', 'title' => 'SOP Monitoring dan Evaluasi Pembangunan Daerah', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'SOP-004', 'title' => 'SOP Pengelolaan Data dan Informasi Pembangunan', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'SOP-005', 'title' => 'SOP Penyusunan Laporan Kinerja Instansi Pemerintah', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
+                @php
+                $dokumenCategory = 'sop';
+                $documents = [
+                    ['key' => 'dok_sop_001', 'no' => 'SOP-001', 'title' => 'SOP Penyusunan Rencana Kerja (RENJA)', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_sop_002', 'no' => 'SOP-002', 'title' => 'SOP Pelaksanaan Musrenbang', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_sop_003', 'no' => 'SOP-003', 'title' => 'SOP Monitoring dan Evaluasi Pembangunan Daerah', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_sop_004', 'no' => 'SOP-004', 'title' => 'SOP Pengelolaan Data dan Informasi Pembangunan', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_sop_005', 'no' => 'SOP-005', 'title' => 'SOP Penyusunan Laporan Kinerja Instansi Pemerintah', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
                 ]; @endphp
                 @include('pages.dokumen._document-list')
             </main>

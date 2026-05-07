@@ -27,11 +27,13 @@
                     </div>
                     <div class="mt-4 sm:mt-0"><div class="flex items-center bg-white rounded-xl border border-slate-200 shadow-sm px-3 py-2 focus-within:border-sky-400 focus-within:ring-2 focus-within:ring-sky-100 transition-all"><svg class="w-4 h-4 text-slate-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg><input type="text" placeholder="Cari regulasi..." class="text-sm border-none outline-none bg-transparent w-40 placeholder:text-slate-400 text-slate-700"></div></div>
                 </div>
-                @php $regulations = [
-                    ['no' => 'Permendagri No. 86 Tahun 2017', 'title' => 'Tata Cara Perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah', 'year' => '2017', 'status' => 'Berlaku'],
-                    ['no' => 'Permendagri No. 90 Tahun 2019', 'title' => 'Klasifikasi, Kodefikasi, dan Nomenklatur Perencanaan Pembangunan dan Keuangan Daerah', 'year' => '2019', 'status' => 'Berlaku'],
-                    ['no' => 'Permendagri No. 77 Tahun 2020', 'title' => 'Pedoman Teknis Pengelolaan Keuangan Daerah', 'year' => '2020', 'status' => 'Berlaku'],
-                    ['no' => 'Permendagri No. 59 Tahun 2021', 'title' => 'Penerapan Standar Pelayanan Minimal', 'year' => '2021', 'status' => 'Berlaku'],
+                @php
+                $regulasiCategory = 'peraturan-menteri';
+                $regulations = [
+                    ['key' => 'reg_pm_86_2017', 'no' => 'Permendagri No. 86 Tahun 2017', 'title' => 'Tata Cara Perencanaan, Pengendalian dan Evaluasi Pembangunan Daerah', 'year' => '2017', 'status' => 'Berlaku'],
+                    ['key' => 'reg_pm_90_2019', 'no' => 'Permendagri No. 90 Tahun 2019', 'title' => 'Klasifikasi, Kodefikasi, dan Nomenklatur Perencanaan Pembangunan dan Keuangan Daerah', 'year' => '2019', 'status' => 'Berlaku'],
+                    ['key' => 'reg_pm_77_2020', 'no' => 'Permendagri No. 77 Tahun 2020', 'title' => 'Pedoman Teknis Pengelolaan Keuangan Daerah', 'year' => '2020', 'status' => 'Berlaku'],
+                    ['key' => 'reg_pm_59_2021', 'no' => 'Permendagri No. 59 Tahun 2021', 'title' => 'Penerapan Standar Pelayanan Minimal', 'year' => '2021', 'status' => 'Berlaku'],
                 ]; @endphp
                 @include('pages.regulasi._regulation-list')
             </main>

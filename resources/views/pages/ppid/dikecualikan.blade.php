@@ -40,54 +40,59 @@
 
                 {{-- ═══ ACCORDION INFORMASI DIKECUALIKAN ═══ --}}
                 @php
+                $ppidCategory = 'dikecualikan';
                 $accordions = [
                     [
                         'id'    => 1,
                         'title' => 'Daftar dan Penetapan Informasi Dikecualikan',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Daftar Informasi yang Dikecualikan Bapelitbangda Kab. Mahakam Ulu Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'views' => 186, 'downloads' => 43],
-                            ['no' => 2, 'judul' => 'Daftar Informasi yang Dikecualikan Bapelitbangda Kab. Mahakam Ulu Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'views' => 154, 'downloads' => 37],
-                            ['no' => 3, 'judul' => 'SK Kepala Bapelitbangda tentang Penetapan Informasi yang Dikecualikan', 'tahun' => '2025', 'format' => 'PDF', 'views' => 121, 'downloads' => 28],
-                            ['no' => 4, 'judul' => 'Hasil Uji Konsekuensi Informasi yang Dikecualikan Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'views' => 98, 'downloads' => 21],
+                            ['key' => 'ppid_dk_daftar_2025', 'no' => 1, 'judul' => 'Daftar Informasi yang Dikecualikan Bapelitbangda Kab. Mahakam Ulu Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dk-daftar-2025.pdf'],
+                            ['key' => 'ppid_dk_daftar_2024', 'no' => 2, 'judul' => 'Daftar Informasi yang Dikecualikan Bapelitbangda Kab. Mahakam Ulu Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/dk-daftar-2024.pdf'],
+                            ['key' => 'ppid_dk_sk_penetapan', 'no' => 3, 'judul' => 'SK Kepala Bapelitbangda tentang Penetapan Informasi yang Dikecualikan', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dk-sk-penetapan.pdf'],
+                            ['key' => 'ppid_dk_uji_konsekuensi', 'no' => 4, 'judul' => 'Hasil Uji Konsekuensi Informasi yang Dikecualikan Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dk-uji-konsekuensi.pdf'],
                         ],
                     ],
                     [
                         'id'    => 2,
                         'title' => 'Informasi yang Dikecualikan karena Sifat Rahasia',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Daftar Dokumen Rahasia Negara di Lingkungan Bapelitbangda', 'tahun' => '2025', 'format' => 'PDF', 'views' => 89, 'downloads' => 12],
-                            ['no' => 2, 'judul' => 'Dokumen Intelijen dan Keamanan Negara', 'tahun' => '2025', 'format' => 'PDF', 'views' => 74, 'downloads' => 9],
-                            ['no' => 3, 'judul' => 'Rencana Strategis yang bersifat Rahasia Pertahanan Negara', 'tahun' => '2024', 'format' => 'PDF', 'views' => 61, 'downloads' => 7],
+                            ['key' => 'ppid_dk_rahasia_negara', 'no' => 1, 'judul' => 'Daftar Dokumen Rahasia Negara di Lingkungan Bapelitbangda', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dk-rahasia-negara.pdf'],
+                            ['key' => 'ppid_dk_intelijen', 'no' => 2, 'judul' => 'Dokumen Intelijen dan Keamanan Negara', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dk-intelijen.pdf'],
+                            ['key' => 'ppid_dk_pertahanan', 'no' => 3, 'judul' => 'Rencana Strategis yang bersifat Rahasia Pertahanan Negara', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/dk-pertahanan.pdf'],
                         ],
                     ],
                     [
                         'id'    => 3,
                         'title' => 'Informasi yang Dikecualikan karena Privasi',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Data Pribadi Pegawai Bapelitbangda Kab. Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'views' => 112, 'downloads' => 18],
-                            ['no' => 2, 'judul' => 'Data Kondisi Kesehatan dan Riwayat Medis Pegawai', 'tahun' => '2025', 'format' => 'PDF', 'views' => 87, 'downloads' => 11],
-                            ['no' => 3, 'judul' => 'Dokumen Penilaian Kinerja Individu (SKP) Pegawai', 'tahun' => '2025', 'format' => 'PDF', 'views' => 96, 'downloads' => 14],
+                            ['key' => 'ppid_dk_data_pribadi', 'no' => 1, 'judul' => 'Data Pribadi Pegawai Bapelitbangda Kab. Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dk-data-pribadi.pdf'],
+                            ['key' => 'ppid_dk_kesehatan', 'no' => 2, 'judul' => 'Data Kondisi Kesehatan dan Riwayat Medis Pegawai', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dk-kesehatan.pdf'],
+                            ['key' => 'ppid_dk_skp', 'no' => 3, 'judul' => 'Dokumen Penilaian Kinerja Individu (SKP) Pegawai', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dk-skp.pdf'],
                         ],
                     ],
                     [
                         'id'    => 4,
                         'title' => 'Informasi yang Dikecualikan karena Hak Kekayaan Intelektual (HKI)',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Dokumen Paten dan Hak Cipta atas Inovasi Daerah', 'tahun' => '2025', 'format' => 'PDF', 'views' => 68, 'downloads' => 9],
-                            ['no' => 2, 'judul' => 'Data dan Hasil Riset yang Belum Dipublikasi', 'tahun' => '2025', 'format' => 'PDF', 'views' => 54, 'downloads' => 6],
-                            ['no' => 3, 'judul' => 'Dokumen Desain dan Rancangan Proyek yang Dilindungi HKI', 'tahun' => '2024', 'format' => 'PDF', 'views' => 47, 'downloads' => 5],
+                            ['key' => 'ppid_dk_paten', 'no' => 1, 'judul' => 'Dokumen Paten dan Hak Cipta atas Inovasi Daerah', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dk-paten.pdf'],
+                            ['key' => 'ppid_dk_riset', 'no' => 2, 'judul' => 'Data dan Hasil Riset yang Belum Dipublikasi', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dk-riset.pdf'],
+                            ['key' => 'ppid_dk_desain', 'no' => 3, 'judul' => 'Dokumen Desain dan Rancangan Proyek yang Dilindungi HKI', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/dk-desain.pdf'],
                         ],
                     ],
                     [
                         'id'    => 5,
                         'title' => 'Informasi yang Dikecualikan karena Kepentingan Penegakan Hukum',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Dokumen Penyelidikan dan Penyidikan yang Sedang Berjalan', 'tahun' => '2025', 'format' => 'PDF', 'views' => 79, 'downloads' => 10],
-                            ['no' => 2, 'judul' => 'Identitas Pelapor, Saksi, dan Korban Pelanggaran', 'tahun' => '2025', 'format' => 'PDF', 'views' => 63, 'downloads' => 8],
-                            ['no' => 3, 'judul' => 'Data Tersangka dan Terdakwa yang Belum Berkekuatan Hukum Tetap', 'tahun' => '2025', 'format' => 'PDF', 'views' => 58, 'downloads' => 7],
+                            ['key' => 'ppid_dk_lidik', 'no' => 1, 'judul' => 'Dokumen Penyelidikan dan Penyidikan yang Sedang Berjalan', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dk-lidik.pdf'],
+                            ['key' => 'ppid_dk_identitas', 'no' => 2, 'judul' => 'Identitas Pelapor, Saksi, dan Korban Pelanggaran', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dk-identitas.pdf'],
+                            ['key' => 'ppid_dk_tersangka', 'no' => 3, 'judul' => 'Data Tersangka dan Terdakwa yang Belum Berkekuatan Hukum Tetap', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dk-tersangka.pdf'],
                         ],
                     ],
                 ];
+
+                // Global Stats for this page
+                $allKeys = collect($accordions)->flatMap(fn($a) => collect($a['rows'])->pluck('key'))->filter()->toArray();
+                $statsMap = \App\Models\DocumentStat::whereIn('doc_key', $allKeys)->get()->keyBy('doc_key');
                 @endphp
 
                 <div class="space-y-3" x-data="{ open: null }">
@@ -98,8 +103,15 @@
                             search: '',
                             perPage: 5,
                             page: 1,
-                            counts: {{ collect($acc['rows'])->map(fn($r) => ['views' => $r['views'], 'downloads' => $r['downloads']])->values()->toJson() }},
-                            allRows: {{ collect($acc['rows'])->values()->toJson() }},
+                            allRows: {{ collect($acc['rows'])->map(function($r) use ($statsMap, $ppidCategory) {
+                                $s = $statsMap->get($r['key']);
+                                return array_merge($r, [
+                                    'views' => $s ? $s->views : 0,
+                                    'downloads' => $s ? $s->downloads : 0,
+                                    'view_url'    => route('stats.view',     ['key' => $r['key'], 'type' => 'ppid', 'category' => $ppidCategory, 'url' => asset($r['file'])]),
+                                    'download_url' => route('stats.download', ['key' => $r['key'], 'type' => 'ppid', 'category' => $ppidCategory, 'url' => asset($r['file'])])
+                                ]);
+                            })->values()->toJson() }},
                             get filtered() {
                                 if (!this.search.trim()) return this.allRows;
                                 const q = this.search.toLowerCase();
@@ -116,8 +128,16 @@
                             },
                             get startRow() { return this.filtered.length === 0 ? 0 : (this.page - 1) * this.perPage + 1; },
                             get endRow() { return Math.min(this.page * this.perPage, this.filtered.length); },
-                            incrementView(idx) { this.allRows[idx].views++; },
-                            incrementDownload(idx) { this.allRows[idx].downloads++; },
+                            incrementView(idx) {
+                                const row = this.allRows[idx];
+                                window.open(row.view_url, '_blank');
+                                row.views++;
+                            },
+                            incrementDownload(idx) {
+                                const row = this.allRows[idx];
+                                window.location.href = row.download_url;
+                                row.downloads++;
+                            },
                         }"
                         x-effect="page = 1"
                     >

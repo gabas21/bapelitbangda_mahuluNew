@@ -42,10 +42,12 @@
                         </div>
                     </div>
                 </div>
-                @php $documents = [
-                    ['no' => 'IKU 2021-2026', 'title' => 'Indikator Kinerja Utama Bapelitbangda Kabupaten Mahakam Ulu Tahun 2021-2026', 'year' => '2021', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'Perubahan IKU', 'title' => 'Perubahan Indikator Kinerja Utama Bapelitbangda Kabupaten Mahakam Ulu', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'IKU 2016-2021', 'title' => 'Indikator Kinerja Utama Bapelitbangda Kabupaten Mahakam Ulu Tahun 2016-2021', 'year' => '2016', 'type' => 'PDF', 'status' => 'Berlaku'],
+                @php
+                $dokumenCategory = 'iku';
+                $documents = [
+                    ['key' => 'dok_iku_2021_2026', 'no' => 'IKU 2021-2026', 'title' => 'Indikator Kinerja Utama Bapelitbangda Kabupaten Mahakam Ulu Tahun 2021-2026', 'year' => '2021', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_iku_perubahan', 'no' => 'Perubahan IKU', 'title' => 'Perubahan Indikator Kinerja Utama Bapelitbangda Kabupaten Mahakam Ulu', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_iku_2016_2021', 'no' => 'IKU 2016-2021', 'title' => 'Indikator Kinerja Utama Bapelitbangda Kabupaten Mahakam Ulu Tahun 2016-2021', 'year' => '2016', 'type' => 'PDF', 'status' => 'Berlaku'],
                 ]; @endphp
                 @include('pages.dokumen._document-list')
             </main>

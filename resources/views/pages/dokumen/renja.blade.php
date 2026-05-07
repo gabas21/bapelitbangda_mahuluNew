@@ -42,11 +42,13 @@
                         </div>
                     </div>
                 </div>
-                @php $documents = [
-                    ['no' => 'RENJA 2026', 'title' => 'Rencana Kerja Bapelitbangda Kabupaten Mahakam Ulu Tahun 2026', 'year' => '2025', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'RENJA 2025', 'title' => 'Rencana Kerja Bapelitbangda Kabupaten Mahakam Ulu Tahun 2025', 'year' => '2024', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'RENJA 2024', 'title' => 'Rencana Kerja Bapelitbangda Kabupaten Mahakam Ulu Tahun 2024', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'RENJA 2023', 'title' => 'Rencana Kerja Bapelitbangda Kabupaten Mahakam Ulu Tahun 2023', 'year' => '2022', 'type' => 'PDF', 'status' => 'Berlaku'],
+                @php
+                $dokumenCategory = 'renja';
+                $documents = [
+                    ['key' => 'dok_renja_2026', 'no' => 'RENJA 2026', 'title' => 'Rencana Kerja Bapelitbangda Kabupaten Mahakam Ulu Tahun 2026', 'year' => '2025', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_renja_2025', 'no' => 'RENJA 2025', 'title' => 'Rencana Kerja Bapelitbangda Kabupaten Mahakam Ulu Tahun 2025', 'year' => '2024', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_renja_2024', 'no' => 'RENJA 2024', 'title' => 'Rencana Kerja Bapelitbangda Kabupaten Mahakam Ulu Tahun 2024', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_renja_2023', 'no' => 'RENJA 2023', 'title' => 'Rencana Kerja Bapelitbangda Kabupaten Mahakam Ulu Tahun 2023', 'year' => '2022', 'type' => 'PDF', 'status' => 'Berlaku'],
                 ]; @endphp
                 @include('pages.dokumen._document-list')
             </main>

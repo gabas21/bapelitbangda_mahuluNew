@@ -60,8 +60,66 @@ document.addEventListener('alpine:init', () => {
             return base;
         },
 
+        get isTodayActive() {
+            const today = new Date().toISOString().split('T')[0];
+            return this.searchDate === today;
+        },
+
+        get isAllActive() {
+            return !this.searchDate && !this.search;
+        },
+
+        showToday() {
+            this.searchDate = new Date().toISOString().split('T')[0];
+            this.search = '';
+            this.onSearch();
+        },
+
+        showAll() {
+            this.searchDate = '';
+            this.search = '';
+            this.onSearch();
+        },
+
+        showNearest() {
+            const now = new Date();
+            const todayStr = now.toISOString().split('T')[0];
+            const upcoming = this.items
+                .filter(item => item.iso > todayStr)
+                .sort((a, b) => a.iso.localeCompare(b.iso));
+            
+            if (upcoming.length > 0) {
+                this.searchDate = upcoming[0].iso;
+                this.search = '';
+                this.onSearch();
+            } else {
+                this.showAll();
+            }
+        },
+
         init() {
-            this.filtered = [...this.items];
+            // Determine the default search date: Today or Next Upcoming
+            const now = new Date();
+            const todayStr = now.toISOString().split('T')[0];
+            
+            // 1. Check if there are events today
+            const hasToday = this.items.some(item => item.iso === todayStr);
+
+            if (hasToday) {
+                this.searchDate = todayStr;
+            } else {
+                // 2. Find next upcoming event date
+                const upcomingItems = this.items
+                    .filter(item => item.iso > todayStr)
+                    .sort((a, b) => a.iso.localeCompare(b.iso));
+                
+                if (upcomingItems.length > 0) {
+                    this.searchDate = upcomingItems[0].iso;
+                }
+            }
+
+            this.onSearch();
+
             const updatePerPage = () => {
                 if (window.innerWidth < 640) this.perPage = 1;
                 else if (window.innerWidth < 1024) this.perPage = 2;
@@ -74,14 +132,7 @@ document.addEventListener('alpine:init', () => {
 
         onSearch() {
             const q = this.search.toLowerCase().trim();
-            const formatInputDate = (dStr) => {
-                if (!dStr) return null;
-                const d = new Date(dStr);
-                if (isNaN(d)) return null;
-                return d;
-            };
-
-            const filterTargetDate = formatInputDate(this.searchDate);
+            const filterTargetDate = this.searchDate;
 
             this.filtered = this.items.filter(item => {
                 let matchText = true;
@@ -94,13 +145,7 @@ document.addEventListener('alpine:init', () => {
 
                 let matchDate = true;
                 if (filterTargetDate) {
-                    const targetDay = filterTargetDate.getDate().toString().padStart(2, '0');
-                    const itemDate = new Date(item.date);
-                    if (!isNaN(itemDate)) {
-                        matchDate = itemDate.toDateString() === filterTargetDate.toDateString();
-                    } else {
-                        matchDate = item.date.includes(targetDay);
-                    }
+                    matchDate = item.iso === filterTargetDate;
                 }
 
                 return matchText && matchDate;

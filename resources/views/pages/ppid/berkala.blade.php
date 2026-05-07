@@ -40,72 +40,77 @@
 
                 {{-- ═══ ACCORDION INFORMASI BERKALA ═══ --}}
                 @php
+                $ppidCategory = 'berkala';
                 $accordions = [
                     [
                         'id'    => 1,
                         'title' => 'Informasi Profil Badan Publik',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Profil Bapelitbangda Kab. Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'views' => 142, 'downloads' => 38],
-                            ['no' => 2, 'judul' => 'Struktur Organisasi', 'tahun' => '2025', 'format' => 'PDF', 'views' => 98, 'downloads' => 21],
-                            ['no' => 3, 'judul' => 'Tugas Pokok dan Fungsi', 'tahun' => '2025', 'format' => 'PDF', 'views' => 75, 'downloads' => 17],
-                            ['no' => 4, 'judul' => 'Visi, Misi dan Tujuan Organisasi', 'tahun' => '2025', 'format' => 'PDF', 'views' => 63, 'downloads' => 12],
+                            ['key' => 'ppid_bk_profil', 'no' => 1, 'judul' => 'Profil Bapelitbangda Kab. Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/profil-bapelitbangda.pdf'],
+                            ['key' => 'ppid_bk_struktur', 'no' => 2, 'judul' => 'Struktur Organisasi', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/struktur-organisasi.pdf'],
+                            ['key' => 'ppid_bk_tupoksi', 'no' => 3, 'judul' => 'Tugas Pokok dan Fungsi', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/tupoksi.pdf'],
+                            ['key' => 'ppid_bk_visimisi', 'no' => 4, 'judul' => 'Visi, Misi dan Tujuan Organisasi', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/visi-misi.pdf'],
                         ],
                     ],
                     [
                         'id'    => 2,
                         'title' => 'Ringkasan Informasi Program dan/atau Kegiatan',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Ringkasan Program dan Kegiatan Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'views' => 211, 'downloads' => 54],
-                            ['no' => 2, 'judul' => 'Ringkasan Program dan Kegiatan Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'views' => 189, 'downloads' => 47],
-                            ['no' => 3, 'judul' => 'Ringkasan Program dan Kegiatan Tahun 2023', 'tahun' => '2023', 'format' => 'PDF', 'views' => 156, 'downloads' => 33],
+                            ['key' => 'ppid_bk_prog_2025', 'no' => 1, 'judul' => 'Ringkasan Program dan Kegiatan Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/program-2025.pdf'],
+                            ['key' => 'ppid_bk_prog_2024', 'no' => 2, 'judul' => 'Ringkasan Program dan Kegiatan Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/program-2024.pdf'],
+                            ['key' => 'ppid_bk_prog_2023', 'no' => 3, 'judul' => 'Ringkasan Program dan Kegiatan Tahun 2023', 'tahun' => '2023', 'format' => 'PDF', 'file' => 'documents/ppid/program-2023.pdf'],
                         ],
                     ],
                     [
                         'id'    => 3,
                         'title' => 'Ringkasan Informasi Kinerja',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Laporan Kinerja (LKjIP) Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'views' => 174, 'downloads' => 42],
-                            ['no' => 2, 'judul' => 'Laporan Kinerja (LKjIP) Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'views' => 203, 'downloads' => 58],
-                            ['no' => 3, 'judul' => 'Laporan Kinerja (LKjIP) Tahun 2023', 'tahun' => '2023', 'format' => 'PDF', 'views' => 161, 'downloads' => 39],
+                            ['key' => 'ppid_bk_kinerja_2025', 'no' => 1, 'judul' => 'Laporan Kinerja (LKjIP) Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/lkjip-2025.pdf'],
+                            ['key' => 'ppid_bk_kinerja_2024', 'no' => 2, 'judul' => 'Laporan Kinerja (LKjIP) Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/lkjip-2024.pdf'],
+                            ['key' => 'ppid_bk_kinerja_2023', 'no' => 3, 'judul' => 'Laporan Kinerja (LKjIP) Tahun 2023', 'tahun' => '2023', 'format' => 'PDF', 'file' => 'documents/ppid/lkjip-2023.pdf'],
                         ],
                     ],
                     [
                         'id'    => 4,
                         'title' => 'Ringkasan Laporan Keuangan',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Laporan Keuangan Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'views' => 132, 'downloads' => 29],
-                            ['no' => 2, 'judul' => 'Laporan Keuangan Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'views' => 148, 'downloads' => 36],
-                            ['no' => 3, 'judul' => 'Laporan Keuangan Tahun 2023', 'tahun' => '2023', 'format' => 'PDF', 'views' => 119, 'downloads' => 27],
+                            ['key' => 'ppid_bk_keu_2025', 'no' => 1, 'judul' => 'Laporan Keuangan Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/keuangan-2025.pdf'],
+                            ['key' => 'ppid_bk_keu_2024', 'no' => 2, 'judul' => 'Laporan Keuangan Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/keuangan-2024.pdf'],
+                            ['key' => 'ppid_bk_keu_2023', 'no' => 3, 'judul' => 'Laporan Keuangan Tahun 2023', 'tahun' => '2023', 'format' => 'PDF', 'file' => 'documents/ppid/keuangan-2023.pdf'],
                         ],
                     ],
                     [
                         'id'    => 5,
                         'title' => 'Ringkasan Laporan Akses Informasi Publik',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Laporan Layanan Informasi Publik Semester I Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'views' => 88, 'downloads' => 19],
-                            ['no' => 2, 'judul' => 'Laporan Layanan Informasi Publik Semester II Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'views' => 102, 'downloads' => 24],
-                            ['no' => 3, 'judul' => 'Laporan Layanan Informasi Publik Semester I Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'views' => 94, 'downloads' => 21],
+                            ['key' => 'ppid_bk_akses_2025_1', 'no' => 1, 'judul' => 'Laporan Layanan Informasi Publik Semester I Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/akses-2025-1.pdf'],
+                            ['key' => 'ppid_bk_akses_2024_2', 'no' => 2, 'judul' => 'Laporan Layanan Informasi Publik Semester II Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/akses-2024-2.pdf'],
+                            ['key' => 'ppid_bk_akses_2024_1', 'no' => 3, 'judul' => 'Laporan Layanan Informasi Publik Semester I Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/akses-2024-1.pdf'],
                         ],
                     ],
                     [
                         'id'    => 6,
                         'title' => 'Informasi Peraturan, Keputusan, dan/atau Kebijakan',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'SK Kepala Bapelitbangda Tentang PPID', 'tahun' => '2025', 'format' => 'PDF', 'views' => 67, 'downloads' => 15],
-                            ['no' => 2, 'judul' => 'Peraturan Bupati Tentang PPID', 'tahun' => '2024', 'format' => 'PDF', 'views' => 83, 'downloads' => 18],
-                            ['no' => 3, 'judul' => 'SOP Layanan Informasi Publik', 'tahun' => '2024', 'format' => 'PDF', 'views' => 71, 'downloads' => 16],
+                            ['key' => 'ppid_bk_sk_kepala', 'no' => 1, 'judul' => 'SK Kepala Bapelitbangda Tentang PPID', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/sk-kepala-ppid.pdf'],
+                            ['key' => 'ppid_bk_perbup', 'no' => 2, 'judul' => 'Peraturan Bupati Tentang PPID', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/perbup-ppid.pdf'],
+                            ['key' => 'ppid_bk_sop', 'no' => 3, 'judul' => 'SOP Layanan Informasi Publik', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/sop-ppid.pdf'],
                         ],
                     ],
                     [
                         'id'    => 7,
                         'title' => 'Informasi Hak dan Tata Cara Memperoleh Informasi',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Panduan Permohonan Informasi Publik', 'tahun' => '2025', 'format' => 'PDF', 'views' => 115, 'downloads' => 31],
-                            ['no' => 2, 'judul' => 'Alur Pengajuan Keberatan Informasi', 'tahun' => '2025', 'format' => 'PDF', 'views' => 79, 'downloads' => 14],
-                            ['no' => 3, 'judul' => 'Formulir Permohonan Informasi', 'tahun' => '2025', 'format' => 'DOCX', 'views' => 92, 'downloads' => 47],
+                            ['key' => 'ppid_bk_panduan', 'no' => 1, 'judul' => 'Panduan Permohonan Informasi Publik', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/panduan-permohonan.pdf'],
+                            ['key' => 'ppid_bk_alur', 'no' => 2, 'judul' => 'Alur Pengajuan Keberatan Informasi', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/alur-keberatan.pdf'],
+                            ['key' => 'ppid_bk_form', 'no' => 3, 'judul' => 'Formulir Permohonan Informasi', 'tahun' => '2025', 'format' => 'DOCX', 'file' => 'documents/ppid/form-permohonan.docx'],
                         ],
                     ],
                 ];
+
+                // Global Stats for this page
+                $allKeys = collect($accordions)->flatMap(fn($a) => collect($a['rows'])->pluck('key'))->filter()->toArray();
+                $statsMap = \App\Models\DocumentStat::whereIn('doc_key', $allKeys)->get()->keyBy('doc_key');
                 @endphp
 
                 <div class="space-y-3" x-data="{ open: null }">
@@ -116,8 +121,15 @@
                             search: '',
                             perPage: 5,
                             page: 1,
-                            counts: {{ collect($acc['rows'])->map(fn($r) => ['views' => $r['views'], 'downloads' => $r['downloads']])->values()->toJson() }},
-                            allRows: {{ collect($acc['rows'])->values()->toJson() }},
+                            allRows: {{ collect($acc['rows'])->map(function($r) use ($statsMap, $ppidCategory) {
+                                $s = $statsMap->get($r['key']);
+                                return array_merge($r, [
+                                    'views' => $s ? $s->views : 0,
+                                    'downloads' => $s ? $s->downloads : 0,
+                                    'view_url'    => route('stats.view',     ['key' => $r['key'], 'type' => 'ppid', 'category' => $ppidCategory, 'url' => asset($r['file'])]),
+                                    'download_url' => route('stats.download', ['key' => $r['key'], 'type' => 'ppid', 'category' => $ppidCategory, 'url' => asset($r['file'])])
+                                ]);
+                            })->values()->toJson() }},
                             get filtered() {
                                 if (!this.search.trim()) return this.allRows;
                                 const q = this.search.toLowerCase();
@@ -134,8 +146,16 @@
                             },
                             get startRow() { return this.filtered.length === 0 ? 0 : (this.page - 1) * this.perPage + 1; },
                             get endRow() { return Math.min(this.page * this.perPage, this.filtered.length); },
-                            incrementView(idx) { this.allRows[idx].views++; },
-                            incrementDownload(idx) { this.allRows[idx].downloads++; },
+                            incrementView(idx) {
+                                const row = this.allRows[idx];
+                                window.open(row.view_url, '_blank');
+                                row.views++;
+                            },
+                            incrementDownload(idx) {
+                                const row = this.allRows[idx];
+                                window.location.href = row.download_url;
+                                row.downloads++;
+                            },
                         }"
                         x-effect="page = 1"
                     >

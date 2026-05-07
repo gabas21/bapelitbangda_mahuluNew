@@ -27,11 +27,13 @@
                     </div>
                     <div class="mt-4 sm:mt-0"><div class="flex items-center bg-white rounded-xl border border-slate-200 shadow-sm px-3 py-2 focus-within:border-sky-400 focus-within:ring-2 focus-within:ring-sky-100 transition-all"><svg class="w-4 h-4 text-slate-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg><input type="text" placeholder="Cari regulasi..." class="text-sm border-none outline-none bg-transparent w-40 placeholder:text-slate-400 text-slate-700"></div></div>
                 </div>
-                @php $regulations = [
-                    ['no' => 'Perda No. 1 Tahun 2016', 'title' => 'Rencana Pembangunan Jangka Panjang Daerah (RPJPD) Kabupaten Mahakam Ulu Tahun 2016-2036', 'year' => '2016', 'status' => 'Berlaku'],
-                    ['no' => 'Perda No. 3 Tahun 2021', 'title' => 'Rencana Pembangunan Jangka Menengah Daerah (RPJMD) Kabupaten Mahakam Ulu Tahun 2021-2026', 'year' => '2021', 'status' => 'Berlaku'],
-                    ['no' => 'Perda No. 5 Tahun 2020', 'title' => 'Anggaran Pendapatan dan Belanja Daerah Tahun Anggaran 2021', 'year' => '2020', 'status' => 'Berlaku'],
-                    ['no' => 'Perda No. 2 Tahun 2019', 'title' => 'Pembentukan dan Susunan Perangkat Daerah Kabupaten Mahakam Ulu', 'year' => '2019', 'status' => 'Berlaku'],
+                @php
+                $regulasiCategory = 'peraturan-daerah';
+                $regulations = [
+                    ['key' => 'reg_pd_1_2016', 'no' => 'Perda No. 1 Tahun 2016', 'title' => 'Rencana Pembangunan Jangka Panjang Daerah (RPJPD) Kabupaten Mahakam Ulu Tahun 2016-2036', 'year' => '2016', 'status' => 'Berlaku'],
+                    ['key' => 'reg_pd_3_2021', 'no' => 'Perda No. 3 Tahun 2021', 'title' => 'Rencana Pembangunan Jangka Menengah Daerah (RPJMD) Kabupaten Mahakam Ulu Tahun 2021-2026', 'year' => '2021', 'status' => 'Berlaku'],
+                    ['key' => 'reg_pd_5_2020', 'no' => 'Perda No. 5 Tahun 2020', 'title' => 'Anggaran Pendapatan dan Belanja Daerah Tahun Anggaran 2021', 'year' => '2020', 'status' => 'Berlaku'],
+                    ['key' => 'reg_pd_2_2019', 'no' => 'Perda No. 2 Tahun 2019', 'title' => 'Pembentukan dan Susunan Perangkat Daerah Kabupaten Mahakam Ulu', 'year' => '2019', 'status' => 'Berlaku'],
                 ]; @endphp
                 @include('pages.regulasi._regulation-list')
             </main>

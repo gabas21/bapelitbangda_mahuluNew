@@ -1,4 +1,4 @@
-﻿
+
         <!-- ============================================ -->
         <!-- SECTION 4: AGENDA INSPEKTORAT (DARK)        -->
         <!-- ============================================ -->
@@ -35,7 +35,7 @@
                     <!-- Search Bar + Nav -->
                     <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-8">
                         <!-- Search & Date Wrapper -->
-                        <div class="flex flex-col sm:flex-row flex-1 gap-3 max-w-2xl">
+                        <div class="flex flex-col sm:flex-row flex-1 gap-3 max-w-2xl items-stretch sm:items-center">
                             <!-- TextInput -->
                             <div class="relative flex-1 group">
                                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -44,32 +44,28 @@
                                 <input type="text"
                                        x-model="search"
                                        @input="onSearch()"
-                                       placeholder="Cari kegiatan atau lokasi..."
-                                       class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-white/40 text-sm font-medium focus:outline-none focus:border-sky-400/50 focus:bg-white/10 focus:ring-1 focus:ring-sky-400/50 transition-all duration-300">
-                                <!-- Clear button -->
-                                <button x-show="search.length > 0"
-                                        x-cloak
-                                        @click="search = ''; onSearch()"
-                                        class="absolute inset-y-0 right-10 pr-4 flex items-center cursor-pointer border-0 bg-transparent active:scale-90 transition-transform">
-                                    <svg class="w-4 h-4 text-white/40 hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-                                </button>
+                                       placeholder="Cari kegiatan..."
+                                       class="w-full pl-12 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 text-sm focus:outline-none focus:border-sky-400/50 transition-all duration-300">
                             </div>
                             <!-- DateInput -->
-                            <div class="relative sm:w-48 group">
-                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                    <svg class="w-5 h-5 text-white/40 group-focus-within:text-sky-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                                </div>
+                            <div class="relative sm:w-44 group">
                                 <input type="date"
                                        x-model="searchDate"
                                        @change="onSearch()"
-                                       title="Filter berdasarkan tanggal"
-                                       class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-white text-sm font-medium focus:outline-none focus:border-sky-400/50 focus:bg-white/10 focus:ring-1 focus:ring-sky-400/50 transition-all duration-300 [color-scheme:dark]">
-                                <!-- Clear Date button -->
-                                <button x-show="searchDate"
-                                        x-cloak
-                                        @click.prevent="searchDate = ''; onSearch()"
-                                        class="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer border-0 bg-transparent active:scale-90 transition-transform">
-                                    <svg class="w-4 h-4 text-white/40 hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                                       class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-sky-400/50 transition-all duration-300 [color-scheme:dark]">
+                            </div>
+
+                            <!-- Quick Filters -->
+                            <div class="flex items-center gap-2">
+                                <button @click="showToday()" 
+                                        class="px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-widest border transition-all whitespace-nowrap"
+                                        :class="isTodayActive ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-600/20' : 'bg-white/5 border-white/10 text-slate-400 hover:text-white hover:bg-white/10'">
+                                    Hari Ini
+                                </button>
+                                <button @click="showAll()" 
+                                        class="px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-widest border transition-all whitespace-nowrap"
+                                        :class="isAllActive ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-600/20' : 'bg-white/5 border-white/10 text-slate-400 hover:text-white hover:bg-white/10'">
+                                    Semua
                                 </button>
                             </div>
                         </div>
@@ -157,11 +153,27 @@
                         </template>
                     </div>
 
-                    <!-- Empty State -->
-                    <div x-show="filtered.length === 0" x-cloak class="py-16 text-center">
-                        <svg class="w-16 h-16 text-instansi-text-muted/20 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                        <p class="text-instansi-text-muted/40 text-lg font-medium">Tidak ada agenda yang cocok</p>
-                        <p class="text-instansi-text-muted/25 text-sm mt-1">Coba gunakan kata kunci lain</p>
+                    <!-- Dynamic Empty State -->
+                    <div x-show="filtered.length === 0" x-cloak class="py-16 px-4 text-center">
+                        <div class="mb-6 inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/5 border border-white/10 mx-auto">
+                            <svg class="w-10 h-10 text-white/10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        </div>
+                        
+                        <div x-show="isTodayActive">
+                            <h4 class="text-white/90 text-2xl font-bold mb-2">Tidak ada agenda hari ini</h4>
+                            <p class="text-slate-400 text-sm mb-8 max-w-sm mx-auto">Sepertinya jadwal hari ini sedang kosong. Apakah Anda ingin melihat agenda terdekat lainnya?</p>
+                            <button @click="showNearest()" class="px-8 py-3 rounded-full bg-blue-600 text-white text-xs font-black uppercase tracking-widest shadow-xl shadow-blue-600/30 hover:bg-blue-500 hover:scale-105 active:scale-95 transition-all">
+                                Lihat Agenda Terdekat
+                            </button>
+                        </div>
+
+                        <div x-show="!isTodayActive">
+                            <h4 class="text-white/40 text-2xl font-bold mb-2">Agenda tidak ditemukan</h4>
+                            <p class="text-slate-400/50 text-sm mb-8 max-w-sm mx-auto">Kami tidak dapat menemukan agenda yang sesuai dengan kriteria pencarian Anda.</p>
+                            <button @click="showAll()" class="text-blue-400 font-bold hover:text-blue-300 transition-colors uppercase text-xs tracking-widest">
+                                Tampilkan Semua Agenda
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -180,14 +192,21 @@
 
             <!-- Agenda Data (injected from PHP) -->
             @php
-                $agendaJson = collect($agendaItems)->map(function($item, $i) {
+                $months_map = ['Januari'=>'01','Februari'=>'02','Maret'=>'03','April'=>'04','Mei'=>'05','Juni'=>'06','Juli'=>'07','Agustus'=>'08','September'=>'09','Oktober'=>'10','November'=>'11','Desember'=>'12'];
+                $agendaJson = collect($agendaItems)->map(function($item, $i) use ($months_map) {
                     $parts = explode(' ', $item['date']);
+                    $iso = date('Y-m-d'); // fallback
+                    if (count($parts) === 3) {
+                        $m = $months_map[$parts[1]] ?? '01';
+                        $iso = $parts[2] . '-' . $m . '-' . str_pad($parts[0], 2, '0', STR_PAD_LEFT);
+                    }
                     return [
                         '_i' => $i,
                         '_ci' => $i % 3,
                         'title' => $item['title'],
                         'description' => $item['description'],
                         'date' => $item['date'],
+                        'iso' => $iso,
                         'time' => $item['time'],
                         'location' => $item['location'],
                         'day' => $parts[0] ?? '',

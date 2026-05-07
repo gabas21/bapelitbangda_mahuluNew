@@ -42,9 +42,11 @@
                         </div>
                     </div>
                 </div>
-                @php $documents = [
-                    ['no' => 'RPJPD 2025-2045', 'title' => 'Rencana Pembangunan Jangka Panjang Daerah Kabupaten Mahakam Ulu Tahun 2025-2045', 'year' => '2025', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'RPJPD 2016-2036', 'title' => 'Rencana Pembangunan Jangka Panjang Daerah Kabupaten Mahakam Ulu Tahun 2016-2036', 'year' => '2016', 'type' => 'PDF', 'status' => 'Berlaku'],
+                @php
+                $dokumenCategory = 'rpjpd';
+                $documents = [
+                    ['key' => 'dok_rpjpd_2025_2045', 'no' => 'RPJPD 2025-2045', 'title' => 'Rencana Pembangunan Jangka Panjang Daerah Kabupaten Mahakam Ulu Tahun 2025-2045', 'year' => '2025', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_rpjpd_2016_2036', 'no' => 'RPJPD 2016-2036', 'title' => 'Rencana Pembangunan Jangka Panjang Daerah Kabupaten Mahakam Ulu Tahun 2016-2036', 'year' => '2016', 'type' => 'PDF', 'status' => 'Berlaku'],
                 ]; @endphp
                 @include('pages.dokumen._document-list')
             </main>

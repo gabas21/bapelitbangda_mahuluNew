@@ -31,7 +31,7 @@
     }
 </style>
 
-<section class="relative pt-[100px] pb-32 overflow-hidden bg-slate-900 mt-0">
+<section class="relative min-h-screen flex flex-col pt-24 pb-12 overflow-hidden bg-slate-900 mt-0">
     <!-- Decorative Background -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <!-- Background Image Layer (Tipis) -->
@@ -65,18 +65,18 @@
     </div>
 
     <!-- FLOATING INFO TICKER -->
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-30 mb-8 sm:mb-12" data-aos="fade-down" data-aos-duration="1000">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-30 mb-4 sm:mb-6" data-aos="fade-down" data-aos-duration="1000">
         <div class="max-w-6xl mx-auto">
             <!-- Glass Pill Container -->
             <div class="relative bg-slate-800/60 backdrop-blur-xl border border-white/10 rounded-full p-1.5 sm:p-2 shadow-[0_10px_40px_rgba(0,0,0,0.5)] flex items-center group cursor-default">
                 
-                <!-- Static "Kabar Mahulu" Badge -->
+                <!-- Static "Kabar Bapelit" Badge -->
                 <div class="relative z-20 shrink-0 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full h-8 sm:h-10 px-4 sm:px-5 flex items-center shadow-lg border border-sky-400/30">
                     <span class="flex relative h-2.5 w-2.5 sm:h-3 sm:w-3 mr-2 sm:mr-3">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-white"></span>
                     </span>
-                    <span class="font-bold text-white text-[10px] sm:text-[11px] tracking-widest uppercase">Kabar Mahulu</span>
+                    <span class="font-bold text-white text-[10px] sm:text-[11px] tracking-widest uppercase">Kabar Bapelit</span>
                 </div>
 
                 <!-- Marquee Track Wrapper -->
@@ -85,36 +85,30 @@
                     <div class="flex animate-marquee-smooth min-w-max items-center h-full">
                         <!-- ORIGINAL CONTENT (Part 1) -->
                         <div class="flex items-center gap-8 sm:gap-14 px-4 sm:px-8">
-                            <span class="flex items-center gap-3 text-slate-200 hover:text-white transition-colors text-xs sm:text-sm">
-                                <span class="text-emerald-400 font-bold uppercase tracking-widest text-[9px] sm:text-[10px] bg-emerald-400/10 border border-emerald-400/20 px-2.5 py-1 rounded">Pengumuman</span> 
+                            <span class="flex items-center text-slate-200 hover:text-white transition-colors text-xs sm:text-sm">
                                 Jadwal Musrenbang Kecamatan Tahun 2026 telah tersedia
                             </span>
                             <span class="text-white/20 text-lg">•</span>
-                            <span class="flex items-center gap-3 text-slate-200 hover:text-white transition-colors text-xs sm:text-sm">
-                                <span class="text-yellow-400 font-bold uppercase tracking-widest text-[9px] sm:text-[10px] bg-yellow-400/10 border border-yellow-400/20 px-2.5 py-1 rounded">Info Terkini</span> 
+                            <span class="flex items-center text-slate-200 hover:text-white transition-colors text-xs sm:text-sm">
                                 Pendaftaran E-Planning periode Maret 2026 dibuka
                             </span>
                             <span class="text-white/20 text-lg">•</span>
-                            <span class="flex items-center gap-3 text-slate-200 hover:text-white transition-colors text-xs sm:text-sm">
-                                <span class="text-sky-400 font-bold uppercase tracking-widest text-[9px] sm:text-[10px] bg-sky-400/10 border border-sky-400/20 px-2.5 py-1 rounded">Update</span> 
+                            <span class="flex items-center text-slate-200 hover:text-white transition-colors text-xs sm:text-sm">
                                 Laporan RKP Daerah TA 2025 telah dipublikasikan
                             </span>
                             <span class="text-white/20 text-lg">•</span>
                         </div>
                         <!-- DUPLICATED CONTENT (Part 2) -->
                         <div class="flex items-center gap-8 sm:gap-14 px-4 sm:px-8" aria-hidden="true">
-                            <span class="flex items-center gap-3 text-slate-200 hover:text-white transition-colors text-xs sm:text-sm">
-                                <span class="text-emerald-400 font-bold uppercase tracking-widest text-[9px] sm:text-[10px] bg-emerald-400/10 border border-emerald-400/20 px-2.5 py-1 rounded">Pengumuman</span> 
+                            <span class="flex items-center text-slate-200 hover:text-white transition-colors text-xs sm:text-sm">
                                 Jadwal Musrenbang Kecamatan Tahun 2026 telah tersedia
                             </span>
                             <span class="text-white/20 text-lg">•</span>
-                            <span class="flex items-center gap-3 text-slate-200 hover:text-white transition-colors text-xs sm:text-sm">
-                                <span class="text-yellow-400 font-bold uppercase tracking-widest text-[9px] sm:text-[10px] bg-yellow-400/10 border border-yellow-400/20 px-2.5 py-1 rounded">Info Terkini</span> 
+                            <span class="flex items-center text-slate-200 hover:text-white transition-colors text-xs sm:text-sm">
                                 Pendaftaran E-Planning periode Maret 2026 dibuka
                             </span>
                             <span class="text-white/20 text-lg">•</span>
-                            <span class="flex items-center gap-3 text-slate-200 hover:text-white transition-colors text-xs sm:text-sm">
-                                <span class="text-sky-400 font-bold uppercase tracking-widest text-[9px] sm:text-[10px] bg-sky-400/10 border border-sky-400/20 px-2.5 py-1 rounded">Update</span> 
+                            <span class="flex items-center text-slate-200 hover:text-white transition-colors text-xs sm:text-sm">
                                 Laporan RKP Daerah TA 2025 telah dipublikasikan
                             </span>
                             <span class="text-white/20 text-lg">•</span>
@@ -126,7 +120,7 @@
         </div>
     </div>
 
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-1 flex flex-col justify-center py-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
             <!-- Text Content (6 cols) -->
@@ -162,19 +156,11 @@
                     </p>
                 </div>
 
-                <div data-aos="fade-up" data-aos-delay="400" class="flex flex-wrap gap-5 pt-6">
-                    <a href="#layanan" class="group relative px-8 py-4 rounded-full font-bold text-sm shadow-2xl shadow-yellow-500/20 overflow-hidden transition-all hover:scale-[1.05] hover:-translate-y-1 active:scale-95 bg-gradient-to-r from-yellow-500 to-amber-600 text-slate-900 border border-yellow-400/50">
-                        <span class="relative flex items-center justify-center gap-3">
-                            Jelajahi Layanan
-                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                        </span>
-                    </a>
-                </div>
             </div>
 
             <!-- Hero Image Card (6 cols) -->
             <div class="lg:col-span-6 relative block" data-aos="fade-left" data-aos-delay="300">
-                <div class="relative group w-full max-w-lg mx-auto aspect-[9/16] md:aspect-[9/16]">
+                <div class="relative group w-full max-w-md mx-auto aspect-[4/5]">
                     <!-- Glow effect behind shield -->
                     <div class="absolute inset-0 bg-yellow-500/20 blur-[60px] rounded-full mask-talawang-inline transform scale-90 translate-y-4"></div>
 
@@ -201,8 +187,8 @@
                                         <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse"></span>
                                         <span class="text-sm font-bold text-sky-50 uppercase tracking-[0.15em]">Yohanes Andy Abeh, S.Sos.,M.Si.</span>
                                     </div>
-                                    <div class="w-12 h-[1px] bg-gradient-to-r from-transparent via-sky-400/50 to-transparent my-0.5"></div>
-                                    <span class="text-[10px] font-semibold text-yellow-500 uppercase tracking-[0.2em]">Kepala Bappelitbangda</span>
+                                    <div class="w-12 h-[1px] bg-gradient-to-r from-transparent via-sky-400/50 to-transparent my-1"></div>
+                                    <span class="text-[9px] text-center font-bold text-yellow-500 uppercase tracking-widest leading-relaxed max-w-[200px]">Kepala Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah</span>
                                 </div>
                             </div>
                         </div>

@@ -40,78 +40,83 @@
 
                 {{-- ═══ ACCORDION INFORMASI SETIAP SAAT ═══ --}}
                 @php
+                $ppidCategory = 'setiap_saat';
                 $accordions = [
                     [
                         'id'    => 1,
                         'title' => 'Daftar Informasi Publik (DIP)',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Daftar Informasi Publik Bapelitbangda Kab. Mahakam Ulu Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'views' => 312, 'downloads' => 87],
-                            ['no' => 2, 'judul' => 'Daftar Informasi Publik Bapelitbangda Kab. Mahakam Ulu Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'views' => 278, 'downloads' => 63],
-                            ['no' => 3, 'judul' => 'Daftar Informasi Dikecualikan Bapelitbangda Kab. Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'views' => 194, 'downloads' => 41],
+                            ['key' => 'ppid_ss_dip_2025', 'no' => 1, 'judul' => 'Daftar Informasi Publik Bapelitbangda Kab. Mahakam Ulu Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dip-2025.pdf'],
+                            ['key' => 'ppid_ss_dip_2024', 'no' => 2, 'judul' => 'Daftar Informasi Publik Bapelitbangda Kab. Mahakam Ulu Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/dip-2024.pdf'],
+                            ['key' => 'ppid_ss_dikecualikan', 'no' => 3, 'judul' => 'Daftar Informasi Dikecualikan Bapelitbangda Kab. Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dip-dikecualikan.pdf'],
                         ],
                     ],
                     [
                         'id'    => 2,
                         'title' => 'Profil, Tugas Pokok, dan Struktur Organisasi',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Profil Bapelitbangda Kabupaten Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'views' => 241, 'downloads' => 58],
-                            ['no' => 2, 'judul' => 'Struktur Organisasi Bapelitbangda Kab. Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'views' => 188, 'downloads' => 42],
-                            ['no' => 3, 'judul' => 'Tugas Pokok dan Fungsi (Tupoksi) Bapelitbangda', 'tahun' => '2025', 'format' => 'PDF', 'views' => 164, 'downloads' => 35],
-                            ['no' => 4, 'judul' => 'Daftar Pejabat Struktural Bapelitbangda', 'tahun' => '2025', 'format' => 'PDF', 'views' => 137, 'downloads' => 29],
+                            ['key' => 'ppid_ss_profil', 'no' => 1, 'judul' => 'Profil Bapelitbangda Kabupaten Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/profil.pdf'],
+                            ['key' => 'ppid_ss_struktur', 'no' => 2, 'judul' => 'Struktur Organisasi Bapelitbangda Kab. Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/struktur.pdf'],
+                            ['key' => 'ppid_ss_tupoksi', 'no' => 3, 'judul' => 'Tugas Pokok dan Fungsi (Tupoksi) Bapelitbangda', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/tupoksi.pdf'],
+                            ['key' => 'ppid_ss_pejabat', 'no' => 4, 'judul' => 'Daftar Pejabat Struktural Bapelitbangda', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/pejabat.pdf'],
                         ],
                     ],
                     [
                         'id'    => 3,
                         'title' => 'Dokumen Perencanaan dan Kinerja',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Rencana Strategis (RENSTRA) Bapelitbangda 2021–2026', 'tahun' => '2021', 'format' => 'PDF', 'views' => 356, 'downloads' => 101],
-                            ['no' => 2, 'judul' => 'Rencana Kerja (RENJA) Bapelitbangda Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'views' => 284, 'downloads' => 72],
-                            ['no' => 3, 'judul' => 'Rencana Kerja (RENJA) Bapelitbangda Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'views' => 253, 'downloads' => 61],
-                            ['no' => 4, 'judul' => 'Perjanjian Kinerja (PK) Bapelitbangda Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'views' => 198, 'downloads' => 47],
-                            ['no' => 5, 'judul' => 'Laporan Kinerja Instansi Pemerintah (LKjIP) Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'views' => 317, 'downloads' => 89],
-                            ['no' => 6, 'judul' => 'Laporan Kinerja Instansi Pemerintah (LKjIP) Tahun 2023', 'tahun' => '2023', 'format' => 'PDF', 'views' => 271, 'downloads' => 74],
+                            ['key' => 'ppid_ss_renstra', 'no' => 1, 'judul' => 'Rencana Strategis (RENSTRA) Bapelitbangda 2021–2026', 'tahun' => '2021', 'format' => 'PDF', 'file' => 'documents/ppid/renstra-2021-2026.pdf'],
+                            ['key' => 'ppid_ss_renja_2025', 'no' => 2, 'judul' => 'Rencana Kerja (RENJA) Bapelitbangda Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/renja-2025.pdf'],
+                            ['key' => 'ppid_ss_renja_2024', 'no' => 3, 'judul' => 'Rencana Kerja (RENJA) Bapelitbangda Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/renja-2024.pdf'],
+                            ['key' => 'ppid_ss_pk_2025', 'no' => 4, 'judul' => 'Perjanjian Kinerja (PK) Bapelitbangda Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/pk-2025.pdf'],
+                            ['key' => 'ppid_ss_lkjip_2024', 'no' => 5, 'judul' => 'Laporan Kinerja Instansi Pemerintah (LKjIP) Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/lkjip-2024.pdf'],
+                            ['key' => 'ppid_ss_lkjip_2023', 'no' => 6, 'judul' => 'Laporan Kinerja Instansi Pemerintah (LKjIP) Tahun 2023', 'tahun' => '2023', 'format' => 'PDF', 'file' => 'documents/ppid/lkjip-2023.pdf'],
                         ],
                     ],
                     [
                         'id'    => 4,
                         'title' => 'Dokumen Anggaran dan Keuangan',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Dokumen Pelaksanaan Anggaran (DPA) Bapelitbangda Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'views' => 229, 'downloads' => 56],
-                            ['no' => 2, 'judul' => 'Dokumen Pelaksanaan Anggaran (DPA) Bapelitbangda Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'views' => 207, 'downloads' => 48],
-                            ['no' => 3, 'judul' => 'Laporan Keuangan Bapelitbangda Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'views' => 183, 'downloads' => 39],
-                            ['no' => 4, 'judul' => 'Laporan Keuangan Bapelitbangda Tahun 2023', 'tahun' => '2023', 'format' => 'PDF', 'views' => 162, 'downloads' => 34],
+                            ['key' => 'ppid_ss_dpa_2025', 'no' => 1, 'judul' => 'Dokumen Pelaksanaan Anggaran (DPA) Bapelitbangda Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/dpa-2025.pdf'],
+                            ['key' => 'ppid_ss_dpa_2024', 'no' => 2, 'judul' => 'Dokumen Pelaksanaan Anggaran (DPA) Bapelitbangda Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/dpa-2024.pdf'],
+                            ['key' => 'ppid_ss_keu_2024', 'no' => 3, 'judul' => 'Laporan Keuangan Bapelitbangda Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/keuangan-2024.pdf'],
+                            ['key' => 'ppid_ss_keu_2023', 'no' => 4, 'judul' => 'Laporan Keuangan Bapelitbangda Tahun 2023', 'tahun' => '2023', 'format' => 'PDF', 'file' => 'documents/ppid/keuangan-2023.pdf'],
                         ],
                     ],
                     [
                         'id'    => 5,
                         'title' => 'Peraturan, Keputusan, dan Kebijakan',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'SK Kepala Bapelitbangda tentang Penunjukan PPID', 'tahun' => '2025', 'format' => 'PDF', 'views' => 145, 'downloads' => 33],
-                            ['no' => 2, 'judul' => 'SK Tim Pertimbangan Pelayanan Informasi Publik', 'tahun' => '2025', 'format' => 'PDF', 'views' => 118, 'downloads' => 24],
-                            ['no' => 3, 'judul' => 'Peraturan Bupati tentang Keterbukaan Informasi Publik', 'tahun' => '2024', 'format' => 'PDF', 'views' => 203, 'downloads' => 52],
-                            ['no' => 4, 'judul' => 'SOP Layanan Informasi Publik Bapelitbangda', 'tahun' => '2025', 'format' => 'PDF', 'views' => 167, 'downloads' => 38],
+                            ['key' => 'ppid_ss_sk_ppid', 'no' => 1, 'judul' => 'SK Kepala Bapelitbangda tentang Penunjukan PPID', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/sk-ppid.pdf'],
+                            ['key' => 'ppid_ss_sk_tim', 'no' => 2, 'judul' => 'SK Tim Pertimbangan Pelayanan Informasi Publik', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/sk-tim.pdf'],
+                            ['key' => 'ppid_ss_perbup', 'no' => 3, 'judul' => 'Peraturan Bupati tentang Keterbukaan Informasi Publik', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/perbup-kip.pdf'],
+                            ['key' => 'ppid_ss_sop', 'no' => 4, 'judul' => 'SOP Layanan Informasi Publik Bapelitbangda', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/sop.pdf'],
                         ],
                     ],
                     [
                         'id'    => 6,
                         'title' => 'Pengadaan Barang dan Jasa',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Rencana Umum Pengadaan (RUP) Bapelitbangda Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'views' => 274, 'downloads' => 69],
-                            ['no' => 2, 'judul' => 'Rencana Umum Pengadaan (RUP) Bapelitbangda Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'views' => 231, 'downloads' => 55],
-                            ['no' => 3, 'judul' => 'Daftar Paket Pengadaan Barang/Jasa yang Dilelang Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'views' => 196, 'downloads' => 44],
+                            ['key' => 'ppid_ss_rup_2025', 'no' => 1, 'judul' => 'Rencana Umum Pengadaan (RUP) Bapelitbangda Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/rup-2025.pdf'],
+                            ['key' => 'ppid_ss_rup_2024', 'no' => 2, 'judul' => 'Rencana Umum Pengadaan (RUP) Bapelitbangda Tahun 2024', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/rup-2024.pdf'],
+                            ['key' => 'ppid_ss_lelang_2025', 'no' => 3, 'judul' => 'Daftar Paket Pengadaan Barang/Jasa yang Dilelang Tahun 2025', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/lelang-2025.pdf'],
                         ],
                     ],
                     [
                         'id'    => 7,
                         'title' => 'Hak dan Tata Cara Memperoleh Informasi',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Panduan Permohonan Informasi Publik', 'tahun' => '2025', 'format' => 'PDF', 'views' => 189, 'downloads' => 48],
-                            ['no' => 2, 'judul' => 'Alur Pengajuan Keberatan atas Penolakan Informasi', 'tahun' => '2025', 'format' => 'PDF', 'views' => 142, 'downloads' => 31],
-                            ['no' => 3, 'judul' => 'Formulir Permohonan Informasi Publik', 'tahun' => '2025', 'format' => 'DOCX', 'views' => 216, 'downloads' => 94],
-                            ['no' => 4, 'judul' => 'Formulir Keberatan Informasi Publik', 'tahun' => '2025', 'format' => 'DOCX', 'views' => 108, 'downloads' => 41],
+                            ['key' => 'ppid_ss_panduan', 'no' => 1, 'judul' => 'Panduan Permohonan Informasi Publik', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/panduan.pdf'],
+                            ['key' => 'ppid_ss_alur_keberatan', 'no' => 2, 'judul' => 'Alur Pengajuan Keberatan atas Penolakan Informasi', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/alur-keberatan.pdf'],
+                            ['key' => 'ppid_ss_form_permohonan', 'no' => 3, 'judul' => 'Formulir Permohonan Informasi Publik', 'tahun' => '2025', 'format' => 'DOCX', 'file' => 'documents/ppid/form-permohonan.docx'],
+                            ['key' => 'ppid_ss_form_keberatan', 'no' => 4, 'judul' => 'Formulir Keberatan Informasi Publik', 'tahun' => '2025', 'format' => 'DOCX', 'file' => 'documents/ppid/form-keberatan.docx'],
                         ],
                     ],
                 ];
+
+                // Global Stats for this page
+                $allKeys = collect($accordions)->flatMap(fn($a) => collect($a['rows'])->pluck('key'))->filter()->toArray();
+                $statsMap = \App\Models\DocumentStat::whereIn('doc_key', $allKeys)->get()->keyBy('doc_key');
                 @endphp
 
                 <div class="space-y-3" x-data="{ open: null }">
@@ -122,8 +127,15 @@
                             search: '',
                             perPage: 5,
                             page: 1,
-                            counts: {{ collect($acc['rows'])->map(fn($r) => ['views' => $r['views'], 'downloads' => $r['downloads']])->values()->toJson() }},
-                            allRows: {{ collect($acc['rows'])->values()->toJson() }},
+                            allRows: {{ collect($acc['rows'])->map(function($r) use ($statsMap, $ppidCategory) {
+                                $s = $statsMap->get($r['key']);
+                                return array_merge($r, [
+                                    'views' => $s ? $s->views : 0,
+                                    'downloads' => $s ? $s->downloads : 0,
+                                    'view_url'    => route('stats.view',     ['key' => $r['key'], 'type' => 'ppid', 'category' => $ppidCategory, 'url' => asset($r['file'])]),
+                                    'download_url' => route('stats.download', ['key' => $r['key'], 'type' => 'ppid', 'category' => $ppidCategory, 'url' => asset($r['file'])])
+                                ]);
+                            })->values()->toJson() }},
                             get filtered() {
                                 if (!this.search.trim()) return this.allRows;
                                 const q = this.search.toLowerCase();
@@ -140,8 +152,16 @@
                             },
                             get startRow() { return this.filtered.length === 0 ? 0 : (this.page - 1) * this.perPage + 1; },
                             get endRow() { return Math.min(this.page * this.perPage, this.filtered.length); },
-                            incrementView(idx) { this.allRows[idx].views++; },
-                            incrementDownload(idx) { this.allRows[idx].downloads++; },
+                            incrementView(idx) {
+                                const row = this.allRows[idx];
+                                window.open(row.view_url, '_blank');
+                                row.views++;
+                            },
+                            incrementDownload(idx) {
+                                const row = this.allRows[idx];
+                                window.location.href = row.download_url;
+                                row.downloads++;
+                            },
                         }"
                         x-effect="page = 1"
                     >

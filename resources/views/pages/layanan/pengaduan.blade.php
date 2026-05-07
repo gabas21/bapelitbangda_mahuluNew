@@ -22,12 +22,12 @@
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-0 left-0 right-0 z-20"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-12 fill-instansi-surface"><path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z"/></svg></div>
+        <div class="absolute bottom-0 left-0 right-0 z-20"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-16 fill-instansi-surface"><path d="M0,20 C360,0 1080,0 1440,20 L1440,60 L0,60 Z"/></svg></div>
     </section>
 
     {{-- ===================== STAT CARDS ===================== --}}
-    <div class="bg-instansi-surface">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
+    <div class="bg-instansi-surface relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" data-aos="fade-up">
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm px-6 py-5 flex items-center gap-4">
                     <div class="w-12 h-12 bg-sky-50 rounded-xl flex items-center justify-center text-sky-600 shrink-0">
@@ -212,6 +212,30 @@
             {{-- ── Sidebar ── --}}
             <div class="space-y-5" data-aos="fade-left" data-aos-delay="100">
 
+                {{-- Panduan Pengaduan --}}
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <div class="px-5 py-4 border-b border-slate-100 bg-sky-50/50">
+                        <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                            <svg class="w-4 h-4 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Panduan Pengaduan
+                        </h3>
+                    </div>
+                    <div class="px-5 py-4 space-y-3">
+                        @foreach([
+                            ['step' => '1', 'text' => 'Isi formulir pengaduan dengan lengkap dan jelas'],
+                            ['step' => '2', 'text' => 'Sertakan bukti atau dokumen pendukung jika ada'],
+                            ['step' => '3', 'text' => 'Simpan nomor tiket yang diberikan setelah kirim'],
+                            ['step' => '4', 'text' => 'Pantau status laporan via menu Cek Status'],
+                            ['step' => '5', 'text' => 'Respon akan diberikan dalam 5–7 hari kerja'],
+                        ] as $item)
+                        <div class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-sky-100 text-sky-700 text-[11px] font-bold flex items-center justify-center shrink-0">{{ $item['step'] }}</span>
+                            <p class="text-xs text-slate-600 leading-relaxed pt-0.5">{{ $item['text'] }}</p>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+
                 {{-- Cek Status & Survey --}}
                 <div class="grid grid-cols-1 gap-3">
                     <a href="{{ route('layanan.cek-status') }}" wire:navigate
@@ -236,30 +260,6 @@
                         </div>
                         <svg class="w-4 h-4 text-slate-400 group-hover:text-amber-500 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </a>
-                </div>
-
-                {{-- Panduan Pengaduan --}}
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-                    <div class="px-5 py-4 border-b border-slate-100 bg-sky-50/50">
-                        <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
-                            <svg class="w-4 h-4 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            Panduan Pengaduan
-                        </h3>
-                    </div>
-                    <div class="px-5 py-4 space-y-3">
-                        @foreach([
-                            ['step' => '1', 'text' => 'Isi formulir pengaduan dengan lengkap dan jelas'],
-                            ['step' => '2', 'text' => 'Sertakan bukti atau dokumen pendukung jika ada'],
-                            ['step' => '3', 'text' => 'Simpan nomor tiket yang diberikan setelah kirim'],
-                            ['step' => '4', 'text' => 'Pantau status laporan via menu Cek Status'],
-                            ['step' => '5', 'text' => 'Respon akan diberikan dalam 5–7 hari kerja'],
-                        ] as $item)
-                        <div class="flex items-start gap-3">
-                            <span class="w-6 h-6 rounded-full bg-sky-100 text-sky-700 text-[11px] font-bold flex items-center justify-center shrink-0">{{ $item['step'] }}</span>
-                            <p class="text-xs text-slate-600 leading-relaxed pt-0.5">{{ $item['text'] }}</p>
-                        </div>
-                        @endforeach
-                    </div>
                 </div>
 
                 {{-- Kontak Langsung --}}

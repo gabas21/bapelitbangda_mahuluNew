@@ -40,52 +40,57 @@
 
                 {{-- ═══ ACCORDION INFORMASI SERTA MERTA ═══ --}}
                 @php
+                $ppidCategory = 'serta_merta';
                 $accordions = [
                     [
                         'id'    => 1,
                         'title' => 'Peringatan Dini dan Keadaan Darurat',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Informasi Peringatan Dini Bencana Alam di Kabupaten Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'views' => 214, 'downloads' => 57],
-                            ['no' => 2, 'judul' => 'Informasi tentang Keadaan Darurat dan Penanggulangannya', 'tahun' => '2025', 'format' => 'PDF', 'views' => 189, 'downloads' => 43],
-                            ['no' => 3, 'judul' => 'Protokol Tanggap Darurat Bencana', 'tahun' => '2024', 'format' => 'PDF', 'views' => 163, 'downloads' => 38],
+                            ['key' => 'ppid_sm_peringatan_dini', 'no' => 1, 'judul' => 'Informasi Peringatan Dini Bencana Alam di Kabupaten Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/sm-peringatan-dini.pdf'],
+                            ['key' => 'ppid_sm_keadaan_darurat', 'no' => 2, 'judul' => 'Informasi tentang Keadaan Darurat dan Penanggulangannya', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/sm-keadaan-darurat.pdf'],
+                            ['key' => 'ppid_sm_protokol', 'no' => 3, 'judul' => 'Protokol Tanggap Darurat Bencana', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/sm-protokol.pdf'],
                         ],
                     ],
                     [
                         'id'    => 2,
                         'title' => 'Informasi terkait Kesehatan Masyarakat',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Pemberitahuan Wabah Penyakit di Wilayah Kabupaten Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'views' => 178, 'downloads' => 42],
-                            ['no' => 2, 'judul' => 'Informasi Ketersediaan dan Distribusi Obat-obatan Darurat', 'tahun' => '2025', 'format' => 'PDF', 'views' => 134, 'downloads' => 29],
-                            ['no' => 3, 'judul' => 'Panduan Penanganan Gizi Buruk di Kabupaten Mahakam Ulu', 'tahun' => '2024', 'format' => 'PDF', 'views' => 112, 'downloads' => 24],
+                            ['key' => 'ppid_sm_wabah', 'no' => 1, 'judul' => 'Pemberitahuan Wabah Penyakit di Wilayah Kabupaten Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/sm-wabah.pdf'],
+                            ['key' => 'ppid_sm_distribusi_obat', 'no' => 2, 'judul' => 'Informasi Ketersediaan dan Distribusi Obat-obatan Darurat', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/sm-distribusi-obat.pdf'],
+                            ['key' => 'ppid_sm_penanganan_gizi', 'no' => 3, 'judul' => 'Panduan Penanganan Gizi Buruk di Kabupaten Mahakam Ulu', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/sm-penanganan-gizi.pdf'],
                         ],
                     ],
                     [
                         'id'    => 3,
                         'title' => 'Informasi terkait Keamanan dan Ketertiban Umum',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Pengumuman Gangguan Keamanan dan Ketertiban Masyarakat', 'tahun' => '2025', 'format' => 'PDF', 'views' => 145, 'downloads' => 34],
-                            ['no' => 2, 'judul' => 'Informasi Konflik Sosial dan Langkah Penanganannya', 'tahun' => '2024', 'format' => 'PDF', 'views' => 118, 'downloads' => 26],
+                            ['key' => 'ppid_sm_gangguan_keamanan', 'no' => 1, 'judul' => 'Pengumuman Gangguan Keamanan dan Ketertiban Masyarakat', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/sm-gangguan-keamanan.pdf'],
+                            ['key' => 'ppid_sm_konflik_sosial', 'no' => 2, 'judul' => 'Informasi Konflik Sosial dan Langkah Penanganannya', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/sm-konflik-sosial.pdf'],
                         ],
                     ],
                     [
                         'id'    => 4,
                         'title' => 'Informasi terkait Lingkungan Hidup',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Pengumuman Pencemaran Lingkungan yang Membahayakan Masyarakat', 'tahun' => '2025', 'format' => 'PDF', 'views' => 197, 'downloads' => 51],
-                            ['no' => 2, 'judul' => 'Informasi Kebakaran Hutan dan Lahan serta Dampaknya', 'tahun' => '2025', 'format' => 'PDF', 'views' => 231, 'downloads' => 68],
-                            ['no' => 3, 'judul' => 'Laporan Kondisi Sungai Mahakam dan Kualitas Air', 'tahun' => '2024', 'format' => 'PDF', 'views' => 156, 'downloads' => 37],
+                            ['key' => 'ppid_sm_pencemaran', 'no' => 1, 'judul' => 'Pengumuman Pencemaran Lingkungan yang Membahayakan Masyarakat', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/sm-pencemaran.pdf'],
+                            ['key' => 'ppid_sm_karhutla', 'no' => 2, 'judul' => 'Informasi Kebakaran Hutan dan Lahan serta Dampaknya', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/sm-karhutla.pdf'],
+                            ['key' => 'ppid_sm_kondisi_sungai', 'no' => 3, 'judul' => 'Laporan Kondisi Sungai Mahakam dan Kualitas Air', 'tahun' => '2024', 'format' => 'PDF', 'file' => 'documents/ppid/sm-kondisi-sungai.pdf'],
                         ],
                     ],
                     [
                         'id'    => 5,
                         'title' => 'Informasi terkait Infrastruktur dan Fasilitas Publik',
                         'rows'  => [
-                            ['no' => 1, 'judul' => 'Pemberitahuan Kerusakan Infrastruktur Vital di Kabupaten Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'views' => 124, 'downloads' => 28],
-                            ['no' => 2, 'judul' => 'Informasi Gangguan Listrik dan Layanan dasar Masyarakat', 'tahun' => '2025', 'format' => 'PDF', 'views' => 109, 'downloads' => 22],
-                            ['no' => 3, 'judul' => 'Standar Pengumuman Informasi Serta Merta Bapelitbangda Kab. Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'views' => 87, 'downloads' => 19],
+                            ['key' => 'ppid_sm_kerusakan_infra', 'no' => 1, 'judul' => 'Pemberitahuan Kerusakan Infrastruktur Vital di Kabupaten Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/sm-kerusakan-infra.pdf'],
+                            ['key' => 'ppid_sm_gangguan_listrik', 'no' => 2, 'judul' => 'Informasi Gangguan Listrik dan Layanan dasar Masyarakat', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/sm-gangguan-listrik.pdf'],
+                            ['key' => 'ppid_sm_standar_pengumuman', 'no' => 3, 'judul' => 'Standar Pengumuman Informasi Serta Merta Bapelitbangda Kab. Mahakam Ulu', 'tahun' => '2025', 'format' => 'PDF', 'file' => 'documents/ppid/sm-standar-pengumuman.pdf'],
                         ],
                     ],
                 ];
+
+                // Global Stats for this page
+                $allKeys = collect($accordions)->flatMap(fn($a) => collect($a['rows'])->pluck('key'))->filter()->toArray();
+                $statsMap = \App\Models\DocumentStat::whereIn('doc_key', $allKeys)->get()->keyBy('doc_key');
                 @endphp
 
                 <div class="space-y-3" x-data="{ open: null }">
@@ -96,8 +101,15 @@
                             search: '',
                             perPage: 5,
                             page: 1,
-                            counts: {{ collect($acc['rows'])->map(fn($r) => ['views' => $r['views'], 'downloads' => $r['downloads']])->values()->toJson() }},
-                            allRows: {{ collect($acc['rows'])->values()->toJson() }},
+                            allRows: {{ collect($acc['rows'])->map(function($r) use ($statsMap, $ppidCategory) {
+                                $s = $statsMap->get($r['key']);
+                                return array_merge($r, [
+                                    'views' => $s ? $s->views : 0,
+                                    'downloads' => $s ? $s->downloads : 0,
+                                    'view_url'    => route('stats.view',     ['key' => $r['key'], 'type' => 'ppid', 'category' => $ppidCategory, 'url' => asset($r['file'])]),
+                                    'download_url' => route('stats.download', ['key' => $r['key'], 'type' => 'ppid', 'category' => $ppidCategory, 'url' => asset($r['file'])])
+                                ]);
+                            })->values()->toJson() }},
                             get filtered() {
                                 if (!this.search.trim()) return this.allRows;
                                 const q = this.search.toLowerCase();
@@ -114,8 +126,16 @@
                             },
                             get startRow() { return this.filtered.length === 0 ? 0 : (this.page - 1) * this.perPage + 1; },
                             get endRow() { return Math.min(this.page * this.perPage, this.filtered.length); },
-                            incrementView(idx) { this.allRows[idx].views++; },
-                            incrementDownload(idx) { this.allRows[idx].downloads++; },
+                            incrementView(idx) {
+                                const row = this.allRows[idx];
+                                window.open(row.view_url, '_blank');
+                                row.views++;
+                            },
+                            incrementDownload(idx) {
+                                const row = this.allRows[idx];
+                                window.location.href = row.download_url;
+                                row.downloads++;
+                            },
                         }"
                         x-effect="page = 1"
                     >

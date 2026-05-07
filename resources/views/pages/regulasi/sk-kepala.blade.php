@@ -27,10 +27,12 @@
                     </div>
                     <div class="mt-4 sm:mt-0"><div class="flex items-center bg-white rounded-xl border border-slate-200 shadow-sm px-3 py-2 focus-within:border-sky-400 focus-within:ring-2 focus-within:ring-sky-100 transition-all"><svg class="w-4 h-4 text-slate-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg><input type="text" placeholder="Cari regulasi..." class="text-sm border-none outline-none bg-transparent w-40 placeholder:text-slate-400 text-slate-700"></div></div>
                 </div>
-                @php $regulations = [
-                    ['no' => 'SK Kepala No. 10 Tahun 2023', 'title' => 'Penetapan Tim Penyusun Rencana Kerja Bapelitbangda Tahun 2024', 'year' => '2023', 'status' => 'Berlaku'],
-                    ['no' => 'SK Kepala No. 5 Tahun 2022', 'title' => 'Pembentukan Tim Evaluasi RPJMD Kabupaten Mahakam Ulu', 'year' => '2022', 'status' => 'Berlaku'],
-                    ['no' => 'SK Kepala No. 15 Tahun 2021', 'title' => 'Pedoman Pelaksanaan Musrenbang Tingkat Kecamatan', 'year' => '2021', 'status' => 'Berlaku'],
+                @php
+                $regulasiCategory = 'sk-kepala';
+                $regulations = [
+                    ['key' => 'reg_skk_10_2023', 'no' => 'SK Kepala No. 10 Tahun 2023', 'title' => 'Penetapan Tim Penyusun Rencana Kerja Bapelitbangda Tahun 2024', 'year' => '2023', 'status' => 'Berlaku'],
+                    ['key' => 'reg_skk_5_2022', 'no' => 'SK Kepala No. 5 Tahun 2022', 'title' => 'Pembentukan Tim Evaluasi RPJMD Kabupaten Mahakam Ulu', 'year' => '2022', 'status' => 'Berlaku'],
+                    ['key' => 'reg_skk_15_2021', 'no' => 'SK Kepala No. 15 Tahun 2021', 'title' => 'Pedoman Pelaksanaan Musrenbang Tingkat Kecamatan', 'year' => '2021', 'status' => 'Berlaku'],
                 ]; @endphp
                 @include('pages.regulasi._regulation-list')
             </main>

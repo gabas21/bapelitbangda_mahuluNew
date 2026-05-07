@@ -43,10 +43,12 @@
                         </div>
                     </div>
                 </div>
-                @php $documents = [
-                    ['no' => 'RENSTRA 2021-2026', 'title' => 'Rencana Strategis Bapelitbangda Kabupaten Mahakam Ulu Tahun 2021-2026', 'year' => '2021', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'RENSTRA 2016-2021', 'title' => 'Rencana Strategis Bapelitbangda Kabupaten Mahakam Ulu Tahun 2016-2021', 'year' => '2016', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'Perubahan RENSTRA', 'title' => 'Perubahan Rencana Strategis Bapelitbangda Kabupaten Mahakam Ulu Tahun 2021-2026', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
+                @php
+                $dokumenCategory = 'renstra';
+                $documents = [
+                    ['key' => 'dok_renstra_2021_2026', 'no' => 'RENSTRA 2021-2026', 'title' => 'Rencana Strategis Bapelitbangda Kabupaten Mahakam Ulu Tahun 2021-2026', 'year' => '2021', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_renstra_2016_2021', 'no' => 'RENSTRA 2016-2021', 'title' => 'Rencana Strategis Bapelitbangda Kabupaten Mahakam Ulu Tahun 2016-2021', 'year' => '2016', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_renstra_perubahan', 'no' => 'Perubahan RENSTRA', 'title' => 'Perubahan Rencana Strategis Bapelitbangda Kabupaten Mahakam Ulu Tahun 2021-2026', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
                 ]; @endphp
                 @include('pages.dokumen._document-list')
             </main>

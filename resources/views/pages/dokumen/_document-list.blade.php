@@ -6,11 +6,30 @@
     $currentPage = max(1, min($currentPage, $totalPages));
     $offset = ($currentPage - 1) * $perPage;
     $paginatedDocuments = array_slice($documents, $offset, $perPage);
+
+    // Load stats from DB for this page
+    $docKeys = array_map(fn($d) => $d['key'] ?? '', $paginatedDocuments);
+    $docKeys = array_filter($docKeys);
+    $statsMap = [];
+    if (!empty($docKeys)) {
+        \App\Models\DocumentStat::whereIn('doc_key', $docKeys)->get()->each(function($s) use (&$statsMap) {
+            $statsMap[$s->doc_key] = ['views' => $s->views, 'downloads' => $s->downloads];
+        });
+    }
 @endphp
 
 {{-- Shared Document List Cards --}}
 <div class="space-y-4">
     @foreach($paginatedDocuments as $i => $doc)
+    @php
+        $docKey    = $doc['key'] ?? '';
+        $views     = $statsMap[$docKey]['views']     ?? $doc['views']     ?? 0;
+        $downloads = $statsMap[$docKey]['downloads'] ?? $doc['downloads'] ?? 0;
+        $hasFile   = !empty($doc['file']);
+        $fileUrl   = $hasFile ? asset($doc['file']) : '';
+        $viewUrl   = $hasFile ? route('stats.view',     ['key' => $docKey, 'type' => 'dokumen', 'category' => $dokumenCategory ?? '', 'url' => $fileUrl]) : '';
+        $downloadUrl = $hasFile ? route('stats.download', ['key' => $docKey, 'type' => 'dokumen', 'category' => $dokumenCategory ?? '', 'url' => $fileUrl]) : '';
+    @endphp
     <div class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:border-sky-200 transition-all duration-300 overflow-hidden"
          data-aos="fade-up" data-aos-delay="{{ $i * 50 }}">
         <div class="flex items-stretch">
@@ -34,29 +53,45 @@
                             @endif
                         </div>
                         <h3 class="text-lg font-bold text-slate-800 group-hover:text-sky-700 transition-colors duration-200 leading-tight">{{ $doc['title'] }}</h3>
-                        <div class="flex items-center gap-4 mt-2 text-sm text-slate-400">
+                        <div class="flex items-center gap-4 mt-2 text-sm text-slate-400 flex-wrap">
                             <span class="flex items-center gap-1">
                                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                                 Tahun {{ $doc['year'] }}
                             </span>
+                            {{-- Views counter --}}
+                            @if($docKey)
+                            <span class="flex items-center gap-1 text-slate-400" id="views-{{ $docKey }}" title="Jumlah dilihat">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                                <span class="views-count font-medium text-slate-500">{{ number_format($views) }}</span> dilihat
+                            </span>
+                            {{-- Downloads counter --}}
+                            <span class="flex items-center gap-1 text-slate-400" id="downloads-{{ $docKey }}" title="Jumlah diunduh">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                                <span class="downloads-count font-medium text-slate-500">{{ number_format($downloads) }}</span> diunduh
+                            </span>
+                            @endif
                         </div>
                     </div>
                     <div class="flex items-center gap-2 sm:flex-shrink-0">
-                        @if(!empty($doc['file']))
-                        <a href="{{ asset($doc['file']) }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-sky-50 text-sky-600 text-sm font-semibold rounded-xl hover:bg-sky-100 active:scale-95 transition-all duration-200">
+                        @if($hasFile)
+                        <a href="{{ $viewUrl }}" target="_blank" rel="noopener noreferrer"
+                           onclick="incrementStatDisplay('{{ $docKey }}', 'views')"
+                           class="inline-flex items-center gap-2 px-4 py-2 bg-sky-50 text-sky-600 text-sm font-semibold rounded-xl hover:bg-sky-100 active:scale-95 transition-all duration-200">
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                             Lihat
                         </a>
-                        <a href="{{ asset($doc['file']) }}" download class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-600 text-sm font-semibold rounded-xl hover:bg-emerald-100 active:scale-95 transition-all duration-200">
+                        <a href="{{ $downloadUrl }}"
+                           onclick="incrementStatDisplay('{{ $docKey }}', 'downloads')"
+                           class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-600 text-sm font-semibold rounded-xl hover:bg-emerald-100 active:scale-95 transition-all duration-200">
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                             Unduh
                         </a>
                         @else
-                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 text-slate-400 text-sm font-semibold rounded-xl cursor-not-allowed">
+                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 text-slate-400 text-sm font-semibold rounded-xl cursor-not-allowed" title="File belum tersedia">
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                             Lihat
                         </span>
-                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 text-slate-400 text-sm font-semibold rounded-xl cursor-not-allowed">
+                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 text-slate-400 text-sm font-semibold rounded-xl cursor-not-allowed" title="File belum tersedia">
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                             Unduh
                         </span>
@@ -112,3 +147,17 @@
 </div>
 @endif
 @endif
+
+{{-- JS helper to optimistically increment displayed counters --}}
+<script>
+function incrementStatDisplay(key, type) {
+    if (!key) return;
+    const el = document.getElementById((type === 'views' ? 'views-' : 'downloads-') + key);
+    if (!el) return;
+    const countEl = el.querySelector('.' + type + '-count');
+    if (countEl) {
+        const current = parseInt(countEl.textContent.replace(/\D/g, '')) || 0;
+        countEl.textContent = (current + 1).toLocaleString('id-ID');
+    }
+}
+</script>

@@ -42,11 +42,13 @@
                         </div>
                     </div>
                 </div>
-                @php $documents = [
-                    ['no' => 'DPA TA 2026', 'title' => 'Dokumen Pelaksanaan Anggaran Bapelitbangda Tahun Anggaran 2026', 'year' => '2026', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'DPA TA 2025', 'title' => 'Dokumen Pelaksanaan Anggaran Bapelitbangda Tahun Anggaran 2025', 'year' => '2025', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'DPA TA 2024', 'title' => 'Dokumen Pelaksanaan Anggaran Bapelitbangda Tahun Anggaran 2024', 'year' => '2024', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'DPPA TA 2025', 'title' => 'Dokumen Pelaksanaan Perubahan Anggaran Bapelitbangda Tahun Anggaran 2025', 'year' => '2025', 'type' => 'PDF', 'status' => 'Berlaku'],
+                @php
+                $dokumenCategory = 'dpa';
+                $documents = [
+                    ['key' => 'dok_dpa_2026', 'no' => 'DPA TA 2026', 'title' => 'Dokumen Pelaksanaan Anggaran Bapelitbangda Tahun Anggaran 2026', 'year' => '2026', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_dpa_2025', 'no' => 'DPA TA 2025', 'title' => 'Dokumen Pelaksanaan Anggaran Bapelitbangda Tahun Anggaran 2025', 'year' => '2025', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_dpa_2024', 'no' => 'DPA TA 2024', 'title' => 'Dokumen Pelaksanaan Anggaran Bapelitbangda Tahun Anggaran 2024', 'year' => '2024', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_dpa_perubahan_2025', 'no' => 'DPPA TA 2025', 'title' => 'Dokumen Pelaksanaan Perubahan Anggaran Bapelitbangda Tahun Anggaran 2025', 'year' => '2025', 'type' => 'PDF', 'status' => 'Berlaku'],
                 ]; @endphp
                 @include('pages.dokumen._document-list')
             </main>

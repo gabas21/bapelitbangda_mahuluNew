@@ -27,11 +27,13 @@
                     </div>
                     <div class="mt-4 sm:mt-0"><div class="flex items-center bg-white rounded-xl border border-slate-200 shadow-sm px-3 py-2 focus-within:border-sky-400 focus-within:ring-2 focus-within:ring-sky-100 transition-all"><svg class="w-4 h-4 text-slate-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg><input type="text" placeholder="Cari regulasi..." class="text-sm border-none outline-none bg-transparent w-40 placeholder:text-slate-400 text-slate-700"></div></div>
                 </div>
-                @php $regulations = [
-                    ['no' => 'Perbup No. 12 Tahun 2021', 'title' => 'Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta Tata Kerja Bapelitbangda', 'year' => '2021', 'status' => 'Berlaku'],
-                    ['no' => 'Perbup No. 8 Tahun 2022', 'title' => 'Rencana Kerja Pemerintah Daerah (RKPD) Tahun 2023', 'year' => '2022', 'status' => 'Berlaku'],
-                    ['no' => 'Perbup No. 15 Tahun 2020', 'title' => 'Pedoman Penyusunan Perencanaan Pembangunan Desa', 'year' => '2020', 'status' => 'Berlaku'],
-                    ['no' => 'Perbup No. 3 Tahun 2023', 'title' => 'Standar Biaya Umum Pemerintah Kabupaten Mahakam Ulu', 'year' => '2023', 'status' => 'Berlaku'],
+                @php
+                $regulasiCategory = 'peraturan-bupati';
+                $regulations = [
+                    ['key' => 'reg_pb_12_2021', 'no' => 'Perbup No. 12 Tahun 2021', 'title' => 'Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta Tata Kerja Bapelitbangda', 'year' => '2021', 'status' => 'Berlaku'],
+                    ['key' => 'reg_pb_8_2022', 'no' => 'Perbup No. 8 Tahun 2022', 'title' => 'Rencana Kerja Pemerintah Daerah (RKPD) Tahun 2023', 'year' => '2022', 'status' => 'Berlaku'],
+                    ['key' => 'reg_pb_15_2020', 'no' => 'Perbup No. 15 Tahun 2020', 'title' => 'Pedoman Penyusunan Perencanaan Pembangunan Desa', 'year' => '2020', 'status' => 'Berlaku'],
+                    ['key' => 'reg_pb_3_2023', 'no' => 'Perbup No. 3 Tahun 2023', 'title' => 'Standar Biaya Umum Pemerintah Kabupaten Mahakam Ulu', 'year' => '2023', 'status' => 'Berlaku'],
                 ]; @endphp
                 @include('pages.regulasi._regulation-list')
             </main>

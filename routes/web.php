@@ -5,9 +5,18 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\DocumentStatsController;
 
 Route::get('/', [LandingController::class, 'index'])->name('beranda');
 Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+
+// Document Stats Routes
+Route::prefix('dokumen-stats')->name('stats.')->group(function () {
+    Route::get('/view', [DocumentStatsController::class, 'view'])->name('view');
+    Route::get('/download', [DocumentStatsController::class, 'download'])->name('download');
+    Route::get('/get', [DocumentStatsController::class, 'stats'])->name('get');
+    Route::post('/batch', [DocumentStatsController::class, 'batch'])->name('batch');
+});
 
 Route::view('/portal', 'portal')->name('portal');
 
@@ -16,6 +25,7 @@ Route::prefix('profil')->name('profil.')->group(function () {
     Route::view('/visi-misi', 'pages.profil.visi-misi')->name('visi-misi');
     Route::view('/tujuan-sasaran', 'pages.profil.tujuan-sasaran')->name('tujuan-sasaran');
     Route::view('/tupoksi', 'pages.profil.tupoksi')->name('tupoksi');
+    Route::view('/pimpinan', 'pages.profil.pimpinan')->name('pimpinan');
     Route::view('/aparatur', 'pages.profil.aparatur')->name('aparatur');
     Route::view('/motto', 'pages.profil.motto')->name('motto');
     Route::view('/penghargaan', 'pages.profil.penghargaan')->name('penghargaan');
@@ -66,4 +76,5 @@ Route::prefix('layanan')->name('layanan.')->group(function () {
     Route::view('/pengaduan', 'pages.layanan.pengaduan')->name('pengaduan');
     Route::view('/cek-status', 'pages.layanan.cek-status')->name('cek-status');
     Route::view('/survey', 'pages.layanan.survey')->name('survey');
+    Route::view('/wbs', 'pages.layanan.wbs')->name('wbs');
 });

@@ -13,7 +13,7 @@
             }
         </style>
 
-        <section class="relative pt-20 pb-32 overflow-hidden bg-instansi-surface">
+        <section class="relative min-h-screen flex flex-col pt-24 pb-12 overflow-hidden bg-instansi-surface">
             <!-- Decorative Background -->
             <div class="absolute inset-0 overflow-hidden pointer-events-none">
                 <!-- Ambient blur orbs -->
@@ -56,7 +56,7 @@
                 </svg>
             </div>
 
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-1 flex flex-col justify-center py-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
                     <!-- Text Content (6 cols) -->
@@ -97,7 +97,7 @@
                     <!-- Hero Image Card (6 cols) -->
                     <!-- 3. REMOVED HIDDEN CLASS to force display -->
                     <div class="lg:col-span-6 relative block" data-aos="fade-left" data-aos-delay="300">
-                        <div class="relative group w-full max-w-lg mx-auto">
+                        <div class="relative group w-full max-w-md mx-auto aspect-[4/5]">
                             <!-- Glow effect behind shield -->
                             <div class="absolute inset-0 bg-yellow-400/20 blur-[60px] rounded-full mask-talawang-inline transform scale-90 translate-y-4"></div>
 

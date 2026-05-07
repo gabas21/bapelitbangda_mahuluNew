@@ -42,11 +42,13 @@
                         </div>
                     </div>
                 </div>
-                @php $documents = [
-                    ['no' => 'RKPD 2026', 'title' => 'Rencana Kerja Pemerintah Daerah Kabupaten Mahakam Ulu Tahun 2026', 'year' => '2025', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'RKPD 2025', 'title' => 'Rencana Kerja Pemerintah Daerah Kabupaten Mahakam Ulu Tahun 2025', 'year' => '2024', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'RKPD 2024', 'title' => 'Rencana Kerja Pemerintah Daerah Kabupaten Mahakam Ulu Tahun 2024', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
-                    ['no' => 'Perubahan RKPD 2025', 'title' => 'Perubahan Rencana Kerja Pemerintah Daerah Kabupaten Mahakam Ulu Tahun 2025', 'year' => '2025', 'type' => 'PDF', 'status' => 'Berlaku'],
+                @php
+                $dokumenCategory = 'rkpd';
+                $documents = [
+                    ['key' => 'dok_rkpd_2026', 'no' => 'RKPD 2026', 'title' => 'Rencana Kerja Pemerintah Daerah Kabupaten Mahakam Ulu Tahun 2026', 'year' => '2025', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_rkpd_2025', 'no' => 'RKPD 2025', 'title' => 'Rencana Kerja Pemerintah Daerah Kabupaten Mahakam Ulu Tahun 2025', 'year' => '2024', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_rkpd_2024', 'no' => 'RKPD 2024', 'title' => 'Rencana Kerja Pemerintah Daerah Kabupaten Mahakam Ulu Tahun 2024', 'year' => '2023', 'type' => 'PDF', 'status' => 'Berlaku'],
+                    ['key' => 'dok_rkpd_perubahan_2025', 'no' => 'Perubahan RKPD 2025', 'title' => 'Perubahan Rencana Kerja Pemerintah Daerah Kabupaten Mahakam Ulu Tahun 2025', 'year' => '2025', 'type' => 'PDF', 'status' => 'Berlaku'],
                 ]; @endphp
                 @include('pages.dokumen._document-list')
             </main>

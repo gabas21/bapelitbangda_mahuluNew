@@ -43,13 +43,15 @@
                         </div>
                     </div>
                 </div>
-                @php $regulations = [
-                    ['no' => 'UU No. 25 Tahun 2004', 'title' => 'Sistem Perencanaan Pembangunan Nasional', 'year' => '2004', 'status' => 'Berlaku'],
-                    ['no' => 'UU No. 23 Tahun 2014', 'title' => 'Pemerintahan Daerah', 'year' => '2014', 'status' => 'Berlaku'],
-                    ['no' => 'UU No. 17 Tahun 2003', 'title' => 'Keuangan Negara', 'year' => '2003', 'status' => 'Berlaku'],
-                    ['no' => 'UU No. 1 Tahun 2004', 'title' => 'Perbendaharaan Negara', 'year' => '2004', 'status' => 'Berlaku'],
-                    ['no' => 'UU No. 33 Tahun 2004', 'title' => 'Perimbangan Keuangan antara Pemerintah Pusat dan Pemerintahan Daerah', 'year' => '2004', 'status' => 'Berlaku'],
-                    ['no' => 'UU No. 6 Tahun 2014', 'title' => 'Desa', 'year' => '2014', 'status' => 'Berlaku'],
+                @php
+                $regulasiCategory = 'undang-undang';
+                $regulations = [
+                    ['key' => 'reg_uu_25_2004', 'no' => 'UU No. 25 Tahun 2004', 'title' => 'Sistem Perencanaan Pembangunan Nasional', 'year' => '2004', 'status' => 'Berlaku'],
+                    ['key' => 'reg_uu_23_2014', 'no' => 'UU No. 23 Tahun 2014', 'title' => 'Pemerintahan Daerah', 'year' => '2014', 'status' => 'Berlaku'],
+                    ['key' => 'reg_uu_17_2003', 'no' => 'UU No. 17 Tahun 2003', 'title' => 'Keuangan Negara', 'year' => '2003', 'status' => 'Berlaku'],
+                    ['key' => 'reg_uu_1_2004', 'no' => 'UU No. 1 Tahun 2004', 'title' => 'Perbendaharaan Negara', 'year' => '2004', 'status' => 'Berlaku'],
+                    ['key' => 'reg_uu_33_2004', 'no' => 'UU No. 33 Tahun 2004', 'title' => 'Perimbangan Keuangan antara Pemerintah Pusat dan Pemerintahan Daerah', 'year' => '2004', 'status' => 'Berlaku'],
+                    ['key' => 'reg_uu_6_2014', 'no' => 'UU No. 6 Tahun 2014', 'title' => 'Desa', 'year' => '2014', 'status' => 'Berlaku'],
                 ]; @endphp
                 @include('pages.regulasi._regulation-list')
             </main>
